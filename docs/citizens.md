@@ -10,13 +10,13 @@ If you use [Citizens](https://wiki.citizensnpcs.co/), you can link your existing
 2. Run:
 
 ```
-/sovereign citizen link <catalog>
+/traders citizen link <catalog>
 ```
 
 Example:
 
 ```
-/sovereign citizen link weapons
+/traders citizen link weapons
 ```
 
 Now right-clicking that Citizens NPC opens the `weapons` catalog.
@@ -26,13 +26,13 @@ Now right-clicking that Citizens NPC opens the `weapons` catalog.
 Look at the NPC and run:
 
 ```
-/sovereign citizen unlink
+/traders citizen unlink
 ```
 
 ## Listing all links
 
 ```
-/sovereign citizen list
+/traders citizen list
 ```
 
 Shows all Citizens NPC IDs and which catalogs they're linked to.

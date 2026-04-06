@@ -25,7 +25,7 @@ That's the entire free config. Pick your economy provider, optionally enable tra
 After editing any config file, run:
 
 ```
-/sovereign reload
+/traders reload
 ```
 
 This reloads `config.yml`, `messages.yml`, `guis.yml`, `npc.yml`, and all catalogs without restarting your server.

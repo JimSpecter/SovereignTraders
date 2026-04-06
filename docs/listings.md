@@ -7,13 +7,13 @@ A **listing** is an item inside a catalog. Each listing has a type, a price, and
 Hold the item you want to add, then run:
 
 ```
-/sovereign listing add <catalog> <buy-price> <sell-price>
+/traders listing add <catalog> <buy-price> <sell-price>
 ```
 
 Example — add a diamond sword that costs $500 to buy and pays $200 to sell:
 
 ```
-/sovereign listing add weapons 500 200
+/traders listing add weapons 500 200
 ```
 
 - If the buy price is > 0, the item is added to the Acquire mode
@@ -22,12 +22,12 @@ Example — add a diamond sword that costs $500 to buy and pays $200 to sell:
 
 ## Adding via the editor
 
-Open the editor with `/sovereign catalog edit <name>`, pick up an item from your inventory, and click an empty slot. You'll be prompted to type prices in chat.
+Open the editor with `/traders catalog edit <name>`, pick up an item from your inventory, and click an empty slot. You'll be prompted to type prices in chat.
 
 ## Removing a listing
 
 ```
-/sovereign listing remove <catalog> <slot>
+/traders listing remove <catalog> <slot>
 ```
 
 Or right-click it in the editor GUI.
@@ -82,7 +82,7 @@ These are all configurable in the catalog YAML file under each listing:
 
 ## Custom item stacks
 
-When you add an item through the editor or the `/sovereign listing add` command, the plugin stores the **exact item** — including custom names, lore, enchantments, custom model data, and any NBT. The shop gives out that exact item.
+When you add an item through the editor or the `/traders listing add` command, the plugin stores the **exact item** — including custom names, lore, enchantments, custom model data, and any NBT. The shop gives out that exact item.
 
 ## Unique IDs
 

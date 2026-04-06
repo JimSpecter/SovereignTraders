@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # SovereignTraders
 
@@ -50,7 +50,7 @@ Create shops, attach them to NPC vendors, and let players buy, sell, or barter �
 1. Drop the JAR into your `plugins/` folder
 2. Install [PacketEvents](https://github.com/retrooper/packetevents/releases) if you haven't already
 3. Start the server — a default config will generate
-4. Run `/sovereign` in-game to get started
+4. Run `/traders` in-game to get started
 
 See [docs/installation.md](docs/installation.md) for a full setup walkthrough.
 

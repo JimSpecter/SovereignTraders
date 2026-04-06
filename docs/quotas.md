@@ -29,7 +29,7 @@ quota:
 
 ### Per item
 
-Open the editor (`/sovereign catalog edit <name>`), shift-click a listing, and type the limit and reset interval in chat.
+Open the editor (`/traders catalog edit <name>`), shift-click a listing, and type the limit and reset interval in chat.
 
 ### Bulk (all items in a mode)
 

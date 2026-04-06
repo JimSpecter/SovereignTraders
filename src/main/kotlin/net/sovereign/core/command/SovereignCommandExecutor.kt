@@ -26,14 +26,14 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             builder.buildFuture()
         }
 
-        val root = io.papermc.paper.command.brigadier.Commands.literal("sovereign")
+        val root = io.papermc.paper.command.brigadier.Commands.literal("traders")
             .executes { ctx ->
-                onCommand(ctx.source.sender, "sovereign", emptyArray())
+                onCommand(ctx.source.sender, "traders", emptyArray())
                 com.mojang.brigadier.Command.SINGLE_SUCCESS
             }
             .then(io.papermc.paper.command.brigadier.Commands.literal("help")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("help"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("help"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.argument("topic", com.mojang.brigadier.arguments.StringArgumentType.word())
@@ -43,25 +43,25 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     }
                     .executes { ctx ->
                         val topic = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "topic")
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("help", topic))
+                        onCommand(ctx.source.sender, "traders", arrayOf("help", topic))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("reload")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("reload"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("reload"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("catalog")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("catalog"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("catalog"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.literal("list")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("catalog", "list"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("catalog", "list"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
@@ -70,7 +70,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         .suggests(catalogSuggestions)
                         .executes { ctx ->
                             val name = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "name")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("catalog", "open", name))
+                            onCommand(ctx.source.sender, "traders", arrayOf("catalog", "open", name))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -79,7 +79,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     .then(io.papermc.paper.command.brigadier.Commands.argument("name", com.mojang.brigadier.arguments.StringArgumentType.word())
                         .executes { ctx ->
                             val name = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "name")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("catalog", "create", name))
+                            onCommand(ctx.source.sender, "traders", arrayOf("catalog", "create", name))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -89,7 +89,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         .suggests(catalogSuggestions)
                         .executes { ctx ->
                             val name = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "name")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("catalog", "delete", name))
+                            onCommand(ctx.source.sender, "traders", arrayOf("catalog", "delete", name))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -99,7 +99,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         .suggests(catalogSuggestions)
                         .executes { ctx ->
                             val name = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "name")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("catalog", "edit", name))
+                            onCommand(ctx.source.sender, "traders", arrayOf("catalog", "edit", name))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -107,7 +107,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("listing")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("listing"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("listing"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.literal("add")
@@ -119,7 +119,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                                     val catalog = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "catalog")
                                     val buy = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "buy")
                                     val sell = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "sell")
-                                    onCommand(ctx.source.sender, "sovereign", arrayOf("listing", "add", catalog, buy, sell))
+                                    onCommand(ctx.source.sender, "traders", arrayOf("listing", "add", catalog, buy, sell))
                                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                                 }
                             )
@@ -133,7 +133,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                             .executes { ctx ->
                                 val catalog = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "catalog")
                                 val slot = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "slot")
-                                onCommand(ctx.source.sender, "sovereign", arrayOf("listing", "remove", catalog, slot))
+                                onCommand(ctx.source.sender, "traders", arrayOf("listing", "remove", catalog, slot))
                                 com.mojang.brigadier.Command.SINGLE_SUCCESS
                             }
                         )
@@ -142,25 +142,25 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("vendor")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("vendor"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("vendor"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.literal("spawn")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "spawn"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("vendor", "spawn"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                     .then(io.papermc.paper.command.brigadier.Commands.argument("preset_or_skin", com.mojang.brigadier.arguments.StringArgumentType.word())
                         .executes { ctx ->
                             val presetOrSkin = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "preset_or_skin")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "spawn", presetOrSkin))
+                            onCommand(ctx.source.sender, "traders", arrayOf("vendor", "spawn", presetOrSkin))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                         .then(io.papermc.paper.command.brigadier.Commands.argument("type", com.mojang.brigadier.arguments.StringArgumentType.word())
                             .executes { ctx ->
                                 val presetOrSkin = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "preset_or_skin")
                                 val type = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "type")
-                                onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "spawn", presetOrSkin, type))
+                                onCommand(ctx.source.sender, "traders", arrayOf("vendor", "spawn", presetOrSkin, type))
                                 com.mojang.brigadier.Command.SINGLE_SUCCESS
                             }
                         )
@@ -168,13 +168,13 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                 )
                 .then(io.papermc.paper.command.brigadier.Commands.literal("remove")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "remove"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("vendor", "remove"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
                 .then(io.papermc.paper.command.brigadier.Commands.literal("undo")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "undo"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("vendor", "undo"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
@@ -183,7 +183,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         .suggests(catalogSuggestions)
                         .executes { ctx ->
                             val catalog = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "catalog")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "link", catalog))
+                            onCommand(ctx.source.sender, "traders", arrayOf("vendor", "link", catalog))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -196,7 +196,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         }
                         .executes { ctx ->
                             val slot = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "slot")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "equip", slot))
+                            onCommand(ctx.source.sender, "traders", arrayOf("vendor", "equip", slot))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -205,7 +205,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     .then(io.papermc.paper.command.brigadier.Commands.argument("lines", com.mojang.brigadier.arguments.StringArgumentType.greedyString())
                         .executes { ctx ->
                             val lines = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "lines")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("vendor", "hologram") + lines.split(" ").toTypedArray())
+                            onCommand(ctx.source.sender, "traders", arrayOf("vendor", "hologram") + lines.split(" ").toTypedArray())
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
@@ -213,25 +213,25 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("market")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("market"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("market"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("migrate")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("migrate"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("migrate"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.literal("dtl")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("migrate", "dtl"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("migrate", "dtl"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
             )
             .then(io.papermc.paper.command.brigadier.Commands.literal("citizen")
                 .executes { ctx ->
-                    onCommand(ctx.source.sender, "sovereign", arrayOf("citizen"))
+                    onCommand(ctx.source.sender, "traders", arrayOf("citizen"))
                     com.mojang.brigadier.Command.SINGLE_SUCCESS
                 }
                 .then(io.papermc.paper.command.brigadier.Commands.literal("link")
@@ -239,27 +239,27 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                         .suggests(catalogSuggestions)
                         .executes { ctx ->
                             val catalog = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "catalog")
-                            onCommand(ctx.source.sender, "sovereign", arrayOf("citizen", "link", catalog))
+                            onCommand(ctx.source.sender, "traders", arrayOf("citizen", "link", catalog))
                             com.mojang.brigadier.Command.SINGLE_SUCCESS
                         }
                     )
                 )
                 .then(io.papermc.paper.command.brigadier.Commands.literal("unlink")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("citizen", "unlink"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("citizen", "unlink"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
                 .then(io.papermc.paper.command.brigadier.Commands.literal("list")
                     .executes { ctx ->
-                        onCommand(ctx.source.sender, "sovereign", arrayOf("citizen", "list"))
+                        onCommand(ctx.source.sender, "traders", arrayOf("citizen", "list"))
                         com.mojang.brigadier.Command.SINGLE_SUCCESS
                     }
                 )
             )
 
         if (devCommands != null) {
-            root.then(devCommands.buildNode { sender, args -> onCommand(sender, "sovereign", args) })
+            root.then(devCommands.buildNode { sender, args -> onCommand(sender, "traders", args) })
         }
 
         return root.build()
@@ -301,7 +301,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
 
     private fun handleCatalog(sender: CommandSender, args: Array<out String>) {
         if (args.size < 2) {
-            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign catalog [list|open|edit|create|delete]"))
+            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders catalog [list|open|edit|create|delete]"))
             return
         }
 
@@ -329,7 +329,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign catalog open [ɴᴀᴍᴇ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders catalog open [ɴᴀᴍᴇ]"))
                     return
                 }
                 val catalogId = args[2].lowercase()
@@ -350,7 +350,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign catalog create [ɴᴀᴍᴇ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders catalog create [ɴᴀᴍᴇ]"))
                     return
                 }
                 val catalogId = args[2].lowercase()
@@ -389,7 +389,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign catalog edit [ɴᴀᴍᴇ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders catalog edit [ɴᴀᴍᴇ]"))
                     return
                 }
                 val catalogId = args[2].lowercase()
@@ -409,7 +409,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
     private fun handleListing(sender: CommandSender, args: Array<out String>) {
         if (sender !is Player) return
         if (args.size < 2) {
-            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign listing [add|remove]"))
+            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders listing [add|remove]"))
             return
         }
 
@@ -420,7 +420,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 5) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign listing add [ᴄᴀᴛᴀʟᴏɢ] [ʙᴜʏ-ᴘʀɪᴄᴇ] [sᴇʟʟ-ᴘʀɪᴄᴇ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders listing add [ᴄᴀᴛᴀʟᴏɢ] [ʙᴜʏ-ᴘʀɪᴄᴇ] [sᴇʟʟ-ᴘʀɪᴄᴇ]"))
                     sender.sendMessage(mm.deserialize("<gray>  ʜᴏʟᴅ ᴛʜᴇ ɪᴛᴇᴍ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴅᴅ ɪɴ ʏᴏᴜʀ ʜᴀɴᴅ."))
                     return
                 }
@@ -440,7 +440,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 4) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign listing remove [ᴄᴀᴛᴀʟᴏɢ] [sʟᴏᴛ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders listing remove [ᴄᴀᴛᴀʟᴏɢ] [sʟᴏᴛ]"))
                     return
                 }
                 val catalogId = args[2].lowercase()
@@ -480,7 +480,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
     private fun handleVendor(sender: CommandSender, args: Array<out String>) {
         if (sender !is Player) return
         if (args.size < 2) {
-            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign vendor [spawn|remove|undo|link|equip|hologram]"))
+            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders vendor [spawn|remove|undo|link|equip|hologram]"))
             return
         }
 
@@ -542,7 +542,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                 if (removed != null) {
                     lastRemoved[sender.uniqueId] = removed
                     val skinLabel = removed.skinName ?: "default"
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <red>ʀᴇᴍᴏᴠᴇᴅ ᴠᴇɴᴅᴏʀ <gray>(<yellow>$skinLabel<gray>)<red>. ᴜsᴇ <yellow>/sovereign vendor undo <red>ᴛᴏ ʀᴇsᴛᴏʀᴇ."))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <red>ʀᴇᴍᴏᴠᴇᴅ ᴠᴇɴᴅᴏʀ <gray>(<yellow>$skinLabel<gray>)<red>. ᴜsᴇ <yellow>/traders vendor undo <red>ᴛᴏ ʀᴇsᴛᴏʀᴇ."))
                 } else {
                     sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ɴᴏ ᴠᴇɴᴅᴏʀ ꜰᴏᴜɴᴅ ᴡɪᴛʜɪɴ 5 ʙʟᴏᴄᴋs."))
                 }
@@ -568,7 +568,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign vendor link [ᴄᴀᴛᴀʟᴏɢ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders vendor link [ᴄᴀᴛᴀʟᴏɢ]"))
                     return
                 }
                 val catalogId = args[2].lowercase()
@@ -589,7 +589,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign vendor equip [mainhand|offhand|helmet|chestplate|leggings|boots]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders vendor equip [mainhand|offhand|helmet|chestplate|leggings|boots]"))
                     return
                 }
                 val slotName = args[2].uppercase()
@@ -631,7 +631,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
                     return
                 }
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign vendor hologram [ʟɪɴᴇ1||ʟɪɴᴇ2||...]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders vendor hologram [ʟɪɴᴇ1||ʟɪɴᴇ2||...]"))
                     sender.sendMessage(mm.deserialize("<gray>  sᴇᴘᴀʀᴀᴛᴇ ʟɪɴᴇs ᴡɪᴛʜ <yellow>|| <gray>— sᴜᴘᴘᴏʀᴛs ᴍɪɴɪᴍᴇssᴀɢᴇ."))
                     return
                 }
@@ -670,7 +670,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             return
         }
         if (args.size < 2) {
-            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign migrate dtl"))
+            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders migrate dtl"))
             return
         }
         when (args[1].lowercase()) {
@@ -709,14 +709,14 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
         }
 
         if (args.size < 2) {
-            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign citizen [link|unlink|list]"))
+            sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders citizen [link|unlink|list]"))
             return
         }
 
         when (args[1].lowercase()) {
             "link" -> {
                 if (args.size < 3) {
-                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign citizen link [ᴄᴀᴛᴀʟᴏɢ]"))
+                    sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders citizen link [ᴄᴀᴛᴀʟᴏɢ]"))
                     sender.sendMessage(mm.deserialize("<gray>  ʟᴏᴏᴋ ᴀᴛ ᴀ ᴄɪᴛɪᴢᴇᴎs ᴎᴘᴄ ᴡɪᴛʜɪᴎ 5 ʙʟᴏᴄᴋs."))
                     return
                 }
@@ -765,7 +765,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
             }
 
             else -> {
-                sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /sovereign citizen [link|unlink|list]"))
+                sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇᴋᴇᴎ</bold> <gray>» <yellow>ᴜsᴀɢᴇ: /traders citizen [link|unlink|list]"))
             }
         }
     }
@@ -814,101 +814,101 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
         if (hasAnyPerm(sender, "sovereign.catalog.list", "sovereign.catalog.open",
                 "sovereign.catalog.edit", "sovereign.catalog.create", "sovereign.catalog.delete")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help catalog'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴄᴀᴛᴀʟᴏɢ <dark_gray>\u2014 <gray>list \u00b7 open \u00b7 edit \u00b7 create \u00b7 delete</hover></click>"
+                "  <click:run_command:'/traders help catalog'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴄᴀᴛᴀʟᴏɢ <dark_gray>\u2014 <gray>list \u00b7 open \u00b7 edit \u00b7 create \u00b7 delete</hover></click>"
             ))
         }
         if (hasAnyPerm(sender, "sovereign.listing.add", "sovereign.listing.remove")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help listing'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ʟɪsᴛɪɴɢ <dark_gray>\u2014 <gray>add \u00b7 remove</hover></click>"
+                "  <click:run_command:'/traders help listing'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ʟɪsᴛɪɴɢ <dark_gray>\u2014 <gray>add \u00b7 remove</hover></click>"
             ))
         }
         if (hasAnyPerm(sender, "sovereign.vendor.spawn", "sovereign.vendor.remove",
                 "sovereign.vendor.link", "sovereign.vendor.equip", "sovereign.vendor.hologram")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help vendor'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴠᴇɴᴅᴏʀ <dark_gray>\u2014 <gray>spawn \u00b7 remove \u00b7 undo \u00b7 link \u00b7 equip \u00b7 hologram</hover></click>"
+                "  <click:run_command:'/traders help vendor'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴠᴇɴᴅᴏʀ <dark_gray>\u2014 <gray>spawn \u00b7 remove \u00b7 undo \u00b7 link \u00b7 equip \u00b7 hologram</hover></click>"
             ))
         }
         if (hasAnyPerm(sender, "sovereign.admin.reload", "sovereign.admin.migrate")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help admin'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴀᴅᴍɪɴ <dark_gray>\u2014 <gray>reload \u00b7 migrate</hover></click>"
+                "  <click:run_command:'/traders help admin'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴀᴅᴍɪɴ <dark_gray>\u2014 <gray>reload \u00b7 migrate</hover></click>"
             ))
         }
         if (plugin.pricingModule.isEnabled && sender.hasPermission("sovereign.admin.market")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help market'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴍᴀʀᴋᴇᴛ <dark_gray>\u2014 <gray>dynamic pricing dashboard</hover></click>"
+                "  <click:run_command:'/traders help market'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴍᴀʀᴋᴇᴛ <dark_gray>\u2014 <gray>dynamic pricing dashboard</hover></click>"
             ))
         }
         if (plugin.citizensBridgeManager != null && sender.hasPermission("sovereign.admin.citizen")) {
             sender.sendMessage(mm.deserialize(
-                "  <click:run_command:'/sovereign help citizen'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴄɪᴛɪᴢᴇɴ <dark_gray>\u2014 <gray>link \u00b7 unlink \u00b7 list</hover></click>"
+                "  <click:run_command:'/traders help citizen'><hover:show_text:'<gray>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs'><green>\u25b8 ᴄɪᴛɪᴢᴇɴ <dark_gray>\u2014 <gray>link \u00b7 unlink \u00b7 list</hover></click>"
             ))
         }
-        sender.sendMessage(mm.deserialize("<dark_gray>ᴛʏᴘᴇ <yellow>/sovereign help [ᴛᴏᴘɪᴄ] <dark_gray>ꜰᴏʀ ᴅᴇᴛᴀɪʟs \u2014 ᴏʀ ᴄʟɪᴄᴋ ᴀ ᴄᴀᴛᴇɢᴏʀʏ"))
+        sender.sendMessage(mm.deserialize("<dark_gray>ᴛʏᴘᴇ <yellow>/traders help [ᴛᴏᴘɪᴄ] <dark_gray>ꜰᴏʀ ᴅᴇᴛᴀɪʟs \u2014 ᴏʀ ᴄʟɪᴄᴋ ᴀ ᴄᴀᴛᴇɢᴏʀʏ"))
     }
 
     private fun sendCatalogHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ᴄᴀᴛᴀʟᴏɢ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.catalog.list"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign catalog list", "ʟɪsᴛ ᴀʟʟ ᴄᴀᴛᴀʟᴏɢs")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders catalog list", "ʟɪsᴛ ᴀʟʟ ᴄᴀᴛᴀʟᴏɢs")))
         if (sender.hasPermission("sovereign.catalog.open"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign catalog open [ɴᴀᴍᴇ]", "ᴏᴘᴇɴ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders catalog open [ɴᴀᴍᴇ]", "ᴏᴘᴇɴ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
         if (sender.hasPermission("sovereign.catalog.edit"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign catalog edit [ɴᴀᴍᴇ]", "ᴇᴅɪᴛ ᴀ ᴄᴀᴛᴀʟᴏɢ (ɢᴜɪ)")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders catalog edit [ɴᴀᴍᴇ]", "ᴇᴅɪᴛ ᴀ ᴄᴀᴛᴀʟᴏɢ (ɢᴜɪ)")))
         if (sender.hasPermission("sovereign.catalog.create"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign catalog create [ɴᴀᴍᴇ]", "ᴄʀᴇᴀᴛᴇ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders catalog create [ɴᴀᴍᴇ]", "ᴄʀᴇᴀᴛᴇ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
         if (sender.hasPermission("sovereign.catalog.delete"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign catalog delete [ɴᴀᴍᴇ]", "ᴅᴇʟᴇᴛᴇ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders catalog delete [ɴᴀᴍᴇ]", "ᴅᴇʟᴇᴛᴇ ᴀ ᴄᴀᴛᴀʟᴏɢ")))
         sender.sendMessage(mm.deserialize(helpBack()))
     }
 
     private fun sendListingHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ʟɪsᴛɪɴɢ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.listing.add"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign listing add [ᴄᴀᴛᴀʟᴏɢ] [ʙᴜʏ] [sᴇʟʟ]", "ᴀᴅᴅ ʜᴇʟᴅ ɪᴛᴇᴍ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders listing add [ᴄᴀᴛᴀʟᴏɢ] [ʙᴜʏ] [sᴇʟʟ]", "ᴀᴅᴅ ʜᴇʟᴅ ɪᴛᴇᴍ")))
         if (sender.hasPermission("sovereign.listing.remove"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign listing remove [ᴄᴀᴛᴀʟᴏɢ] [sʟᴏᴛ]", "ʀᴇᴍᴏᴠᴇ ʟɪsᴛɪɴɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders listing remove [ᴄᴀᴛᴀʟᴏɢ] [sʟᴏᴛ]", "ʀᴇᴍᴏᴠᴇ ʟɪsᴛɪɴɢ")))
         sender.sendMessage(mm.deserialize(helpBack()))
     }
 
     private fun sendVendorHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ᴠᴇɴᴅᴏʀ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.vendor.spawn"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor spawn [ᴘʀᴇsᴇᴛ|sᴋɪɴ] [ᴛʏᴘᴇ]", "sᴘᴀᴡɴ ᴀ ᴠᴇɴᴅᴏʀ ɴᴘᴄ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor spawn [ᴘʀᴇsᴇᴛ|sᴋɪɴ] [ᴛʏᴘᴇ]", "sᴘᴀᴡɴ ᴀ ᴠᴇɴᴅᴏʀ ɴᴘᴄ")))
         if (sender.hasPermission("sovereign.vendor.remove")) {
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor remove", "ʀᴇᴍᴏᴠᴇ ɴᴇᴀʀᴇsᴛ ᴠᴇɴᴅᴏʀ")))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor undo", "ʀᴇsᴛᴏʀᴇ ʟᴀsᴛ ʀᴇᴍᴏᴠᴇᴅ ᴠᴇɴᴅᴏʀ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor remove", "ʀᴇᴍᴏᴠᴇ ɴᴇᴀʀᴇsᴛ ᴠᴇɴᴅᴏʀ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor undo", "ʀᴇsᴛᴏʀᴇ ʟᴀsᴛ ʀᴇᴍᴏᴠᴇᴅ ᴠᴇɴᴅᴏʀ")))
         }
         if (sender.hasPermission("sovereign.vendor.link"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor link [ᴄᴀᴛᴀʟᴏɢ]", "ʟɪɴᴋ ᴠᴇɴᴅᴏʀ ᴛᴏ ᴄᴀᴛᴀʟᴏɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor link [ᴄᴀᴛᴀʟᴏɢ]", "ʟɪɴᴋ ᴠᴇɴᴅᴏʀ ᴛᴏ ᴄᴀᴛᴀʟᴏɢ")))
         if (sender.hasPermission("sovereign.vendor.equip"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor equip [sʟᴏᴛ]", "ɢɪᴠᴇ ʜᴇʟᴅ ɪᴛᴇᴍ ᴛᴏ ᴠᴇɴᴅᴏʀ sʟᴏᴛ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor equip [sʟᴏᴛ]", "ɢɪᴠᴇ ʜᴇʟᴅ ɪᴛᴇᴍ ᴛᴏ ᴠᴇɴᴅᴏʀ sʟᴏᴛ")))
         if (sender.hasPermission("sovereign.vendor.hologram"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign vendor hologram [ʟɪɴᴇs]", "sᴇᴛ ʜᴏʟᴏɢʀᴀᴍ ᴛᴇxᴛ (|| = ɴᴇᴡʟɪɴᴇ)")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders vendor hologram [ʟɪɴᴇs]", "sᴇᴛ ʜᴏʟᴏɢʀᴀᴍ ᴛᴇxᴛ (|| = ɴᴇᴡʟɪɴᴇ)")))
         sender.sendMessage(mm.deserialize(helpBack()))
     }
 
     private fun sendAdminHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.admin.reload"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign reload", "ʀᴇʟᴏᴀᴅ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders reload", "ʀᴇʟᴏᴀᴅ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ")))
         if (sender.hasPermission("sovereign.admin.migrate"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign migrate dtl", "ᴍɪɢʀᴀᴛᴇ ꜰʀᴏᴍ ᴅᴛʟᴛʀᴀᴅᴇʀs/ᴘʟᴜs")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders migrate dtl", "ᴍɪɢʀᴀᴛᴇ ꜰʀᴏᴍ ᴅᴛʟᴛʀᴀᴅᴇʀs/ᴘʟᴜs")))
         sender.sendMessage(mm.deserialize(helpBack()))
     }
 
     private fun sendMarketHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ᴍᴀʀᴋᴇᴛ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.admin.market"))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign market", "ᴏᴘᴇɴ ᴅʏɴᴀᴍɪᴄ ᴘʀɪᴄɪɴɢ ᴅᴀsʜʙᴏᴀʀᴅ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders market", "ᴏᴘᴇɴ ᴅʏɴᴀᴍɪᴄ ᴘʀɪᴄɪɴɢ ᴅᴀsʜʙᴏᴀʀᴅ")))
         sender.sendMessage(mm.deserialize(helpBack()))
     }
 
     private fun sendCitizenHelp(sender: CommandSender) {
         sender.sendMessage(mm.deserialize("<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>\u2014 <green>ᴄɪᴛɪᴢᴇɴ ᴄᴏᴍᴍᴀɴᴅs"))
         if (sender.hasPermission("sovereign.admin.citizen")) {
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign citizen link [ᴄᴀᴛᴀʟᴏɢ]", "ʟɪɴᴋ ᴄɪᴛɪᴢᴇɴs ɴᴘᴄ ᴛᴏ ᴄᴀᴛᴀʟᴏɢ")))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign citizen unlink", "ᴜɴʟɪɴᴋ ᴄɪᴛɪᴢᴇɴs ɴᴘᴄ")))
-            sender.sendMessage(mm.deserialize(helpEntry("/sovereign citizen list", "ʟɪsᴛ ᴀʟʟ ᴄɪᴛɪᴢᴇɴs ʟɪɴᴋs")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders citizen link [ᴄᴀᴛᴀʟᴏɢ]", "ʟɪɴᴋ ᴄɪᴛɪᴢᴇɴs ɴᴘᴄ ᴛᴏ ᴄᴀᴛᴀʟᴏɢ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders citizen unlink", "ᴜɴʟɪɴᴋ ᴄɪᴛɪᴢᴇɴs ɴᴘᴄ")))
+            sender.sendMessage(mm.deserialize(helpEntry("/traders citizen list", "ʟɪsᴛ ᴀʟʟ ᴄɪᴛɪᴢᴇɴs ʟɪɴᴋs")))
         }
         sender.sendMessage(mm.deserialize(helpBack()))
     }
@@ -920,7 +920,7 @@ class SovereignCommandExecutor(private val plugin: SovereignCore, private val de
     }
 
     private fun helpBack(): String {
-        return "<click:run_command:'/sovereign help'><hover:show_text:'<gray>ʙᴀᴄᴋ ᴛᴏ ᴏᴠᴇʀᴠɪᴇᴡ'><dark_gray>\u25c2 <yellow>/sovereign help <dark_gray>ꜰᴏʀ ᴏᴠᴇʀᴠɪᴇᴡ</hover></click>"
+        return "<click:run_command:'/traders help'><hover:show_text:'<gray>ʙᴀᴄᴋ ᴛᴏ ᴏᴠᴇʀᴠɪᴇᴡ'><dark_gray>\u25c2 <yellow>/traders help <dark_gray>ꜰᴏʀ ᴏᴠᴇʀᴠɪᴇᴡ</hover></click>"
     }
 
     private fun hasAnyPerm(sender: CommandSender, vararg perms: String): Boolean {
