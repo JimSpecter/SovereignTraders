@@ -1,85 +1,108 @@
-﻿# SovereignTraders
+﻿<div align="center">
 
-A shop plugin for Paper 1.21+ servers. Create item shops, attach them to NPC vendors, and let players buy, sell, or barter through a clean GUI.
+# SovereignTraders
 
-## What it does
+**NPC shop plugin for Paper 1.21+**
 
-- NPC vendors with custom skins, holograms, and equipment — no Citizens required, but it supports Citizens too
-- Buy mode, sell mode, and item-for-item barter mode
-- Vault, GemsEconomy, CoinsEngine, and PlayerPoints support
-- Per-item transaction quotas with auto-reset timers
-- Sales and limited-time discounts with time-window scheduling
-- Transaction logging for auditing
-- Directive system — run commands when players purchase (ranks, kits, crate keys, whatever you want)
-- Full in-game GUI editor, no YAML editing needed for day-to-day management
-- Shift-click bulk buy/sell with smart quantity presets
-- Folia compatible out of the box
-- One-click migration from dtlTraders / dtlTradersPlus
+[![Version](https://img.shields.io/badge/version-1.0.2-5865F2?style=for-the-badge)](https://github.com/JimSpecter/SovereignTraders/releases)
+[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://adoptium.net)
+[![Paper](https://img.shields.io/badge/Paper-1.21%2B-00AA00?style=for-the-badge)](https://papermc.io)
+[![Folia](https://img.shields.io/badge/Folia-supported-00AA00?style=for-the-badge)](https://papermc.io/software/folia)
+[![License](https://img.shields.io/badge/License-PolyForm%20NC-orange?style=for-the-badge)](LICENSE)
+
+Create shops, attach them to NPC vendors, and let players buy, sell, or barter — all through a clean in-game GUI with no YAML editing required.
+
+</div>
+
+---
+
+## Features
+
+| Feature | Description |
+|---|---|
+| **Custom NPC vendors** | Spawn vendors with custom skins, holograms, and equipment. No Citizens dependency, but it's supported. |
+| **Three trade modes** | Buy, sell, and item-for-item barter — all configurable per listing. |
+| **Multi-economy** | Works with Vault, GemsEconomy, CoinsEngine, and PlayerPoints out of the box. |
+| **In-game editor** | Create and manage catalogs, listings, and vendors entirely in-game. |
+| **Quotas** | Limit how many times a player can buy an item, with optional auto-reset timers. |
+| **Sales & discounts** | Apply discounts to individual items or entire catalogs, with time-window scheduling. |
+| **Directives** | Run console or player commands when a player completes a purchase (ranks, kits, crate keys, etc.). |
+| **Barter mode** | Accept items instead of currency — define exactly what to take and what to give. |
+| **Bulk buy/sell** | Shift-click for a quantity selector with smart presets. |
+| **Transaction log** | Every buy, sell, and barter is written to a plain-text log for auditing. |
+| **Folia support** | Thread-safe and Folia-compatible out of the box. |
+| **Citizens integration** | Link vendors to Citizens NPCs if you prefer. |
+| **dtlTraders migration** | One-click import from dtlTraders and dtlTradersPlus. |
+
+---
 
 ## Requirements
 
-- Paper 1.21+ (or Folia 1.21+)
-- [PacketEvents](https://github.com/retrooper/packetevents)
-- An economy plugin (Vault + EssentialsX, GemsEconomy, CoinsEngine, or PlayerPoints)
-- Java 21
+- **Paper 1.21+** or Folia 1.21+
+- **Java 21**
+- **[PacketEvents](https://github.com/retrooper/packetevents)** — required for vendor NPCs
+- One of: Vault + EssentialsX, GemsEconomy, CoinsEngine, or PlayerPoints
+
+---
+
+## Installation
+
+1. Drop the JAR into your `plugins/` folder
+2. Install [PacketEvents](https://github.com/retrooper/packetevents/releases) if you haven't already
+3. Start the server — a default config will generate
+4. Run `/sovereign` in-game to get started
+
+See [docs/installation.md](docs/installation.md) for a full setup walkthrough.
+
+---
 
 ## Building
 
 ```sh
+# Clone the repo
+git clone https://github.com/JimSpecter/SovereignTraders.git
+cd SovereignTraders
+
+# Build (obfuscated with ProGuard)
 ./gradlew buildFree
-```
 
-The obfuscated JAR lands in `build/libs/`.
-
-For development (unobfuscated):
-
-```sh
+# Development build (unobfuscated)
 ./gradlew shadowFreeJar
-```
 
-To spin up a local test server:
-
-```sh
+# Spin up a local test server
 ./gradlew runServerFree
 ```
 
-This downloads a Paper server, drops in the plugin plus VaultUnlocked, EssentialsX, and PacketEvents, and starts it. If you have local plugin JARs (Citizens.jar, GemsEconomy.jar, etc.) in the project root, they get picked up automatically.
+The test server task downloads Paper automatically and pre-installs VaultUnlocked, EssentialsX, and PacketEvents. Drop any additional plugin JARs (Citizens.jar, GemsEconomy.jar, etc.) in the project root and they'll be picked up automatically.
 
-## Project structure
-
-```
-src/main/     Shared source — core, display, economy, catalog, config
-src/free/     Free edition entry point and resources
-src/test/     Unit tests
-docs/         User-facing documentation
-```
-
-`main` has everything: vendor rendering, catalog management, economy providers, the GUI editor, quota enforcement, transaction logging, and the dtlTraders migration tool.
-
-`free` is a thin entry point (`SovereignFreePlugin`) and a no-op pricing module.
+---
 
 ## Documentation
 
-Full docs are in the [docs/](docs/) folder:
+| Topic | |
+|---|---|
+| [Installation](docs/installation.md) | Getting the plugin running |
+| [Commands & Permissions](docs/commands.md) | Full command and permission reference |
+| [Configuration](docs/configuration.md) | config.yml walkthrough |
+| [Catalogs & Listings](docs/catalogs.md) | How shops and items work |
+| [GUI Customization](docs/gui-customization.md) | Customizing every GUI |
+| [Vendors](docs/vendors.md) | Setting up NPC vendors |
+| [Economy Providers](docs/economy-providers.md) | Supported economy plugins |
+| [Quotas](docs/quotas.md) | Purchase limits and resets |
+| [Sales](docs/sales.md) | Discounts and time-window scheduling |
+| [Directives](docs/directives.md) | Command execution on purchase |
+| [Barter Mode](docs/barter.md) | Item-for-item trading |
+| [Citizens Integration](docs/citizens.md) | Using Citizens NPCs as vendors |
+| [Migration](docs/migration.md) | Importing from dtlTraders |
+| [FAQ](docs/faq.md) | Common questions |
 
-- [Installation](docs/installation.md)
-- [Commands and Permissions](docs/commands.md)
-- [Configuration](docs/configuration.md)
-- [Catalogs and Listings](docs/catalogs.md)
-- [GUI Customization](docs/gui-customization.md)
-- [Vendors](docs/vendors.md)
-- [Economy Providers](docs/economy-providers.md)
-- [Quotas](docs/quotas.md)
-- [Sales](docs/sales.md)
-- [Directives](docs/directives.md)
-- [Barter Mode](docs/barter.md)
-- [Citizens Integration](docs/citizens.md)
-- [Migration from dtlTraders](docs/migration.md)
-- [FAQ](docs/faq.md)
+---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md). TL;DR: fork, make a focused change, ensure `./gradlew check` passes, then open a PR.
+
+---
 
 ## License
 
