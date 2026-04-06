@@ -25,7 +25,7 @@ Check console for "Failed to fetch skin" messages.
 
 ## Items in the shop don't match what I added
 
-Make sure you're holding the **exact item** you want when using `/sovereign listing add` or the editor. The plugin stores the item including all metadata (enchantments, custom names, lore, NBT).
+Make sure you're holding the **exact item** you want when using `/traders listing add` or the editor. The plugin stores the item including all metadata (enchantments, custom names, lore, NBT).
 
 ## Players can't open a catalog
 
@@ -33,7 +33,7 @@ Check for:
 1. **Catalog authorization** — does the catalog have an `authorization` field? The player needs that permission.
 2. **Section authorization** — same thing but per-section.
 3. **Command permission** — if opened via command, the player needs `sovereign.catalog.open`.
-4. **Vendor link** — if opened via NPC, make sure the vendor is linked to a catalog (`/sovereign vendor link <name>`).
+4. **Vendor link** — if opened via NPC, make sure the vendor is linked to a catalog (`/traders vendor link <name>`).
 
 ## The mode toggle button doesn't appear / only one mode works
 
@@ -54,11 +54,11 @@ The quota timer is server-side and ticks every second. If you restart the server
 
 ## How do I edit a catalog without the in-game editor?
 
-Each catalog is a YAML file in `plugins/SovereignTraders/catalogs/<name>.yml`. Edit it with any text editor and run `/sovereign reload`.
+Each catalog is a YAML file in `plugins/SovereignTraders/catalogs/<name>.yml`. Edit it with any text editor and run `/traders reload`.
 
 ## How do I move a vendor?
 
-You can't move vendors in-place. Remove it (`/sovereign vendor remove`), walk to the new location, and spawn a new one. Or edit the location values in `npc.yml` — but note the docs say location changes there are not applied on reload (the in-world entity stays put).
+You can't move vendors in-place. Remove it (`/traders vendor remove`), walk to the new location, and spawn a new one. Or edit the location values in `npc.yml` — but note the docs say location changes there are not applied on reload (the in-world entity stays put).
 
 ## Does this work on Folia?
 
@@ -66,8 +66,8 @@ Yes. SovereignTraders detects Folia automatically and uses the correct scheduler
 
 ## I migrated from dtlTraders but some items look wrong
 
-The migrator handles most cases, but some edge cases with very old dtlTraders data formats may not convert perfectly. Check the specific items in `/sovereign catalog edit <name>` and fix them manually if needed. The original dtlTraders data is backed up — it's not modified.
+The migrator handles most cases, but some edge cases with very old dtlTraders data formats may not convert perfectly. Check the specific items in `/traders catalog edit <name>` and fix them manually if needed. The original dtlTraders data is backed up — it's not modified.
 
 ## Can I use both SovereignTraders vendors and Citizens NPCs?
 
-Yes. SovereignTraders vendors and Citizens NPCs are completely independent. You can have both on the same server and link Citizens NPCs to catalogs using `/sovereign citizen link`.
+Yes. SovereignTraders vendors and Citizens NPCs are completely independent. You can have both on the same server and link Citizens NPCs to catalogs using `/traders citizen link`.

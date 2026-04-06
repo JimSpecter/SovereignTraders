@@ -141,7 +141,7 @@ class DtlMigrationModule(private val plugin: SovereignCore) {
         if (report.errors > 0) {
             msg(sender, "<red>ᴇʀʀᴏʀs ᴇɴᴄᴏᴜɴᴛᴇʀᴇᴅ: <yellow>${report.errors}")
         }
-        msg(sender, "<gray>ᴜsᴇ <yellow>/sovereign catalog list <gray>ᴛᴏ ᴠᴇʀɪꜰʏ.")
+        msg(sender, "<gray>ᴜsᴇ <yellow>/traders catalog list <gray>ᴛᴏ ᴠᴇʀɪꜰʏ.")
 
         return report
     }

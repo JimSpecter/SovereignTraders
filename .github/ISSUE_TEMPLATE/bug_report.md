@@ -10,7 +10,7 @@ assignees: ''
 Paper/Folia version and Minecraft version (e.g. Paper 1.21.8)
 
 **Plugin version**
-SovereignTraders version (e.g. 1.0.2)
+SovereignTraders version (e.g. 1.0.3)
 
 **Economy plugin**
 Which economy are you using? (Vault, GemsEconomy, CoinsEngine, PlayerPoints)

@@ -8,7 +8,7 @@ SovereignTraders can import all your shops from **dtlTraders** or **dtlTradersPl
 2. Run:
 
 ```
-/sovereign migrate dtl
+/traders migrate dtl
 ```
 
 3. That's it. The plugin finds the data folder, reads every shop, and creates matching catalogs.
@@ -34,7 +34,7 @@ The plugin creates a backup copy of your dtlTraders folder (named `dtlTradersPlu
 
 ## After migration
 
-Run `/sovereign catalog list` to see all your imported catalogs. Open each one with `/sovereign catalog open <name>` to verify everything looks right.
+Run `/traders catalog list` to see all your imported catalogs. Open each one with `/traders catalog open <name>` to verify everything looks right.
 
 ## Supported formats
 

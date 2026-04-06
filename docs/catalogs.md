@@ -5,7 +5,7 @@ A **catalog** is a shop. It has a name, one or more pages (called **sections**),
 ## Creating a catalog
 
 ```
-/sovereign catalog create weapons
+/traders catalog create weapons
 ```
 
 This creates a catalog called `weapons` with one empty section and 4 rows of item slots. A file appears at `plugins/SovereignTraders/catalogs/weapons.yml`.
@@ -13,7 +13,7 @@ This creates a catalog called `weapons` with one empty section and 4 rows of ite
 ## Opening a catalog
 
 ```
-/sovereign catalog open weapons
+/traders catalog open weapons
 ```
 
 Opens the shop GUI for that catalog. This is also what happens when a player right-clicks a vendor NPC linked to this catalog.
@@ -21,7 +21,7 @@ Opens the shop GUI for that catalog. This is also what happens when a player rig
 ## Editing a catalog
 
 ```
-/sovereign catalog edit weapons
+/traders catalog edit weapons
 ```
 
 Opens the in-game editor. From here you can:
@@ -37,13 +37,13 @@ Opens the in-game editor. From here you can:
 ## Listing catalogs
 
 ```
-/sovereign catalog list
+/traders catalog list
 ```
 
 ## Deleting a catalog
 
 ```
-/sovereign catalog delete weapons
+/traders catalog delete weapons
 ```
 
 This removes the catalog and its file permanently.

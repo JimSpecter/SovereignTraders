@@ -2,8 +2,8 @@
 #  NPC Configuration — Vendor Presets
 #  All text values support MiniMessage. Legacy &-codes are auto-converted.
 #
-#  Spawn a preset:  /sovereign vendor spawn <preset>
-#  Spawn raw:       /sovereign vendor spawn <skin> <entity-type>
+#  Spawn a preset:  /traders vendor spawn <preset>
+#  Spawn raw:       /traders vendor spawn <skin> <entity-type>
 # ============================================================================
 
 # Global defaults applied to every vendor unless overridden by a preset.
@@ -62,7 +62,7 @@ presets:
 # ============================================================================
 #  Active Vendors — auto-populated when vendors are spawned
 #
-#  Edit any property below, then run /sovereign reload to apply changes.
+#  Edit any property below, then run /traders reload to apply changes.
 #  New vendors appear here automatically. Removing a section here does NOT
 #  delete the in-world entity; it will be re-added on next recovery.
 #
@@ -77,6 +77,6 @@ presets:
 #
 #  Read-only / machine-managed:
 #    location             Recorded for reference — changes are NOT applied
-#    equipment            Base64-encoded items — use /sovereign vendor equip
+#    equipment            Base64-encoded items — use /traders vendor equip
 # ============================================================================
 vendors: {}

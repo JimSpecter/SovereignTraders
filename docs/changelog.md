@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.3
+
+### Breaking Change
+- **Command Root Renamed** — The primary command has changed from `/sovereign` to `/traders`. Aliases `/st` and `/svt` remain unchanged. Any macros, scripts, or command blocks using `/sovereign` must be updated to `/traders`.
+
+---
+
 ## v1.0.2
 
 ### New Feature

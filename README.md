@@ -1,10 +1,10 @@
-﻿<div align="center">
+<div align="center">
 
 # SovereignTraders
 
 **NPC shop plugin for Paper 1.21+**
 
-[![Version](https://img.shields.io/badge/version-1.0.2-5865F2?style=for-the-badge)](https://github.com/JimSpecter/SovereignTraders/releases)
+[![Version](https://img.shields.io/badge/version-1.0.3-5865F2?style=for-the-badge)](https://github.com/JimSpecter/SovereignTraders/releases)
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://adoptium.net)
 [![Paper](https://img.shields.io/badge/Paper-1.21%2B-00AA00?style=for-the-badge)](https://papermc.io)
 [![Folia](https://img.shields.io/badge/Folia-supported-00AA00?style=for-the-badge)](https://papermc.io/software/folia)
@@ -50,7 +50,7 @@ Create shops, attach them to NPC vendors, and let players buy, sell, or barter �
 1. Drop the JAR into your `plugins/` folder
 2. Install [PacketEvents](https://github.com/retrooper/packetevents/releases) if you haven't already
 3. Start the server — a default config will generate
-4. Run `/sovereign` in-game to get started
+4. Run `/traders` in-game to get started
 
 See [docs/installation.md](docs/installation.md) for a full setup walkthrough.
 

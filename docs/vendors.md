@@ -9,7 +9,7 @@ Vendors are the NPC entities that players right-click to open a shop. They are *
 Stand where you want the NPC and run:
 
 ```
-/sovereign vendor spawn
+/traders vendor spawn
 ```
 
 This spawns a default player-type vendor with the default hologram.
@@ -17,7 +17,7 @@ This spawns a default player-type vendor with the default hologram.
 ### With a skin
 
 ```
-/sovereign vendor spawn Notch
+/traders vendor spawn Notch
 ```
 
 Uses the Minecraft skin of the player "Notch". Any valid Minecraft username works.
@@ -25,7 +25,7 @@ Uses the Minecraft skin of the player "Notch". Any valid Minecraft username work
 ### With a different entity type
 
 ```
-/sovereign vendor spawn Notch VILLAGER
+/traders vendor spawn Notch VILLAGER
 ```
 
 Supported entity types: `PLAYER`, `VILLAGER`, `ZOMBIE`, `SKELETON`, `WANDERING_TRADER`, `PIGLIN`, `WITCH`, `IRON_GOLEM`, `SNOW_GOLEM`, `ENDERMAN`, `BLAZE`, `ALLAY`, `FOX`, `CAT`, `WOLF`
@@ -35,7 +35,7 @@ Supported entity types: `PLAYER`, `VILLAGER`, `ZOMBIE`, `SKELETON`, `WANDERING_T
 ### Using a preset
 
 ```
-/sovereign vendor spawn trader
+/traders vendor spawn trader
 ```
 
 Presets are defined in `npc.yml` and bundle together an entity type, skin, hologram, and other settings. Three come included: `trader`, `wanderer`, and `villager`.
@@ -45,7 +45,7 @@ Presets are defined in `npc.yml` and bundle together an entity type, skin, holog
 After spawning a vendor, look at it and run:
 
 ```
-/sovereign vendor link weapons
+/traders vendor link weapons
 ```
 
 Now when players right-click this vendor, the `weapons` catalog opens.
@@ -55,7 +55,7 @@ Now when players right-click this vendor, the `weapons` catalog opens.
 Look at the vendor (within 5 blocks) and run:
 
 ```
-/sovereign vendor remove
+/traders vendor remove
 ```
 
 ### Undo a removal
@@ -63,7 +63,7 @@ Look at the vendor (within 5 blocks) and run:
 Changed your mind? Run this right after:
 
 ```
-/sovereign vendor undo
+/traders vendor undo
 ```
 
 The vendor is restored exactly as it was, including its catalog link.
@@ -73,7 +73,7 @@ The vendor is restored exactly as it was, including its catalog link.
 Hold an item in your hand, look at the vendor, and run:
 
 ```
-/sovereign vendor equip <slot>
+/traders vendor equip <slot>
 ```
 
 Slots: `mainhand`, `offhand`, `helmet`, `chestplate`, `leggings`, `boots`
@@ -81,7 +81,7 @@ Slots: `mainhand`, `offhand`, `helmet`, `chestplate`, `leggings`, `boots`
 Example — give the vendor a diamond sword:
 
 ```
-/sovereign vendor equip mainhand
+/traders vendor equip mainhand
 ```
 
 ## Changing the hologram
@@ -89,13 +89,13 @@ Example — give the vendor a diamond sword:
 Look at the vendor and run:
 
 ```
-/sovereign vendor hologram <lines>
+/traders vendor hologram <lines>
 ```
 
 Use `||` to separate lines. Lines support MiniMessage formatting.
 
 ```
-/sovereign vendor hologram <gold><bold>Shop</bold> || <gray>Right click to browse
+/traders vendor hologram <gold><bold>Shop</bold> || <gray>Right click to browse
 ```
 
 ## Head tracking
@@ -120,11 +120,11 @@ presets:
     catalog: weapons     # Auto-links this catalog on spawn
 ```
 
-Then spawn it with `/sovereign vendor spawn trader`.
+Then spawn it with `/traders vendor spawn trader`.
 
 ## Editing vendors after spawning
 
-All spawned vendors are saved in the `vendors:` section of `npc.yml`. You can edit any property there (skin, hologram, entity type, catalog link, look radius, hitbox size) and run `/sovereign reload` to apply changes live.
+All spawned vendors are saved in the `vendors:` section of `npc.yml`. You can edit any property there (skin, hologram, entity type, catalog link, look radius, hitbox size) and run `/traders reload` to apply changes live.
 
 ## Persistence
 
