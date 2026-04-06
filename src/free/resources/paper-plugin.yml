@@ -1,0 +1,30 @@
+name: SovereignTraders
+version: ${version}
+main: net.sovereign.core.SovereignFreePlugin
+api-version: "1.21"
+folia-supported: true
+description: A high-performance virtual economy and trading platform.
+authors:
+  - SovereignDev
+website: https://sovereigntraders.net
+
+dependencies:
+  server:
+    Vault:
+      required: false
+      join-classpath: true
+    packetevents:
+      required: true
+      join-classpath: true
+    GemsEconomy:
+      required: false
+      join-classpath: true
+    CoinsEngine:
+      required: false
+      join-classpath: true
+    PlayerPoints:
+      required: false
+      join-classpath: true
+    Citizens:
+      required: false
+      join-classpath: true

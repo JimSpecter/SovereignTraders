@@ -1,0 +1,23 @@
+version: 1.0.0
+
+general:
+  # Which economy plugin to use. Supported values:
+  #   vault         — Vault (EssentialsX, CMI, etc.) [default]
+  #   gemseconomy   — GemsEconomy multi-currency
+  #   coinsengine   — CoinsEngine by NightExpress
+  #   playerpoints  — PlayerPoints by Rosewood Development
+  economy-provider: vault
+  # Only used when economy-provider is 'coinsengine'.
+  # The currency ID to use (as defined in CoinsEngine config).
+  coins-engine-currency: coins
+
+# ============================================================================
+#  Transaction Log — Audit Trail
+#  When enabled, every shop transaction (buy, sell, barter, directive) is
+#  recorded to a flat file at plugins/SovereignTraders/transactions.log.
+#  Format: pipe-delimited (TIMESTAMP|UUID|NAME|CATALOG|UID|LABEL|MODE|QTY|AMOUNT|RESULT)
+#  Useful for dispute resolution, exploit detection, and analytics.
+# ============================================================================
+transaction-log:
+  # Master toggle. Set to false to disable transaction logging entirely.
+  enabled: true

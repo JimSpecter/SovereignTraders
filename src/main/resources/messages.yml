@@ -1,0 +1,111 @@
+general:
+  restricted-access: "<red>ᴀᴄᴄᴇss ᴅᴇɴɪᴇᴅ. ʏᴏᴜ ʟᴀᴄᴋ ᴛʜᴇ ʀᴇǫᴜɪʀᴇᴅ ᴀᴜᴛʜᴏʀɪᴢᴀᴛɪᴏɴ."
+  tag: "<white><bold>sᴏᴠᴇʀᴇɪɢɴ</bold> <gray>» "
+  acquire-cost-format: "<gray>ᴄᴏsᴛ: <green>$%amount%"
+  liquidate-reward-format: "<gray>ʀᴇᴡᴀʀᴅ: <green>$%amount%"
+  currency-pattern: "#0.00"
+
+errors:
+  whitespace-forbidden: "ɪᴅᴇɴᴛɪꜰɪᴇʀs ᴄᴀɴɴᴏᴛ ᴄᴏɴᴛᴀɪɴ ᴡʜɪᴛᴇsᴘᴀᴄᴇ ᴄʜᴀʀᴀᴄᴛᴇʀs."
+  no-alternate-catalog: "<red>ɴᴏ ᴀʟᴛᴇʀɴᴀᴛᴇ ᴄᴀᴛᴀʟᴏɢ ɪs ᴄᴏɴꜰɪɢᴜʀᴇᴅ. ᴍᴏᴅᴜʟᴇ sᴜsᴘᴇɴᴅᴇᴅ."
+  empty-catalog-sections: "<red>ᴛʜɪs ᴄᴀᴛᴀʟᴏɢ ʜᴀs ɴᴏ ᴄᴏɴꜰɪɢᴜʀᴇᴅ sᴇᴄᴛɪᴏɴs."
+  row-underflow: "<red>ʀᴏᴡ ᴄᴏᴜɴᴛ ᴍᴜsᴛ ʙᴇ ᴀ ᴘᴏsɪᴛɪᴠᴇ ɪɴᴛᴇɢᴇʀ."
+  row-overflow: "<red>ʀᴏᴡ ᴄᴏᴜɴᴛ ᴄᴀɴɴᴏᴛ ᴇxᴄᴇᴇᴅ sɪx."
+  malformed-value: "<red>%input% ɪs ɴᴏᴛ ᴀ ʀᴇᴄᴏɢɴɪᴢᴇᴅ ɴᴜᴍᴇʀɪᴄ ᴠᴀʟᴜᴇ."
+  negative-ratio: "<red>ᴘᴇʀᴄᴇɴᴛᴀɢᴇ ᴠᴀʟᴜᴇs ᴍᴜsᴛ ʙᴇ ɴᴏɴ-ɴᴇɢᴀᴛɪᴠᴇ."
+  invalid-ratio: "<red>%input% ɪs ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ ᴘᴇʀᴄᴇɴᴛᴀɢᴇ."
+  negative-cost: "<red>ᴄᴏsᴛ ᴠᴀʟᴜᴇs ᴍᴜsᴛ ʙᴇ ɴᴏɴ-ɴᴇɢᴀᴛɪᴠᴇ."
+  invalid-cost: "<red>%input% ɪs ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ ᴄᴏsᴛ."
+  reduction-exceeds-base: "<red>ʀᴇᴅᴜᴄᴛɪᴏɴ ᴄᴀɴɴᴏᴛ ᴇxᴄᴇᴇᴅ ᴛʜᴇ ʙᴀsᴇ ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ᴄᴏsᴛ."
+  malformed-duration: "<red>ɪɴᴠᴀʟɪᴅ ᴅᴜʀᴀᴛɪᴏɴ ꜰᴏʀᴍᴀᴛ. ᴀᴄᴄᴇᴘᴛᴇᴅ: 8ʜ, 7ᴅ, 30ᴍ, ᴇᴛᴄ."
+  minimum-duration: "<red>ᴅᴜʀᴀᴛɪᴏɴ ᴍᴜsᴛ ʙᴇ ᴀᴛ ʟᴇᴀsᴛ ᴏɴᴇ sᴇᴄᴏɴᴅ."
+  no-directives: "<red>ɴᴏ ᴅɪʀᴇᴄᴛɪᴠᴇs ᴡᴇʀᴇ ꜰᴏᴜɴᴅ."
+  non-numeric: "<red>%input% ɪs ɴᴏᴛ ᴀ ɴᴜᴍʙᴇʀ."
+  unknown-catalog: "<red>%input% ɪs ɴᴏᴛ ᴀ ʀᴇᴄᴏɢɴɪᴢᴇᴅ ᴄᴀᴛᴀʟᴏɢ ɪᴅᴇɴᴛɪꜰɪᴇʀ."
+  incompatible-catalog: "<red>%input% ɪs ɴᴏᴛ ᴄᴏᴍᴘᴀᴛɪʙʟᴇ ᴡɪᴛʜ ᴛʜɪs ᴏᴘᴇʀᴀᴛɪᴏɴ."
+  empty-hand: "<red>ʏᴏᴜ ᴍᴜsᴛ ʜᴏʟᴅ ᴀɴ ɪᴛᴇᴍ ᴛᴏ ᴘᴇʀꜰᴏʀᴍ ᴛʜɪs ᴀᴄᴛɪᴏɴ."
+
+operations:
+  restricted: "<red>ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀᴜᴛʜᴏʀɪᴢᴀᴛɪᴏɴ ᴛᴏ %action% ᴛʜɪs ʟɪsᴛɪɴɢ."
+  quota-exhausted: "<red>ʏᴏᴜ'ᴠᴇ ʀᴇᴀᴄʜᴇᴅ ʏᴏᴜʀ ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ǫᴜᴏᴛᴀ. ᴀᴠᴀɪʟᴀʙʟᴇ ᴀɢᴀɪɴ ɪɴ %remaining%."
+  insufficient-materials: "<red>ʏᴏᴜ ʟᴀᴄᴋ ᴛʜᴇ ʀᴇǫᴜɪʀᴇᴅ ᴍᴀᴛᴇʀɪᴀʟs ᴛᴏ %action% ᴛʜɪs ʟɪsᴛɪɴɢ."
+  insufficient-balance: "<red>ɪɴsᴜꜰꜰɪᴄɪᴇɴᴛ ꜰᴜɴᴅs. ʏᴏᴜ ɴᴇᴇᴅ %deficit% ᴍᴏʀᴇ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ᴛʜɪs ᴘᴜʀᴄʜᴀsᴇ."
+  inventory-full: "<red>ʏᴏᴜʀ ɪɴᴠᴇɴᴛᴏʀʏ ɪs ꜰᴜʟʟ. ᴄᴀɴɴᴏᴛ ʀᴇᴄᴇɪᴠᴇ ɪᴛᴇᴍs."
+  liquidation-failed: "<red>ʟɪǫᴜɪᴅᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ: %reason%"
+  acquisition-confirmed: "<green>sᴜᴄᴄᴇssꜰᴜʟʟʏ ᴀᴄǫᴜɪʀᴇᴅ %listing% ꜰᴏʀ %amount%."
+  liquidation-confirmed: "<green>sᴜᴄᴄᴇssꜰᴜʟʟʏ ʟɪǫᴜɪᴅᴀᴛᴇᴅ %listing% ꜰᴏʀ %amount%."
+  barter-confirmed: "<green>ʙᴀʀᴛᴇʀ ᴄᴏᴍᴘʟᴇᴛᴇᴅ sᴜᴄᴄᴇssꜰᴜʟʟʏ."
+  confirmation-cancelled: "<gray>ᴛʀᴀɴsᴀᴄᴛɪᴏɴ ᴄᴀɴᴄᴇʟʟᴇᴅ."
+
+confirmation:
+  # Lore lines shown on the preview item in the confirmation GUI (%mode%, %cost% are replaced)
+  preview-lore:
+    - ""
+    - "<gray>ᴍᴏᴅᴇ: <white>%mode%"
+    - "<gray>ᴄᴏsᴛ: <yellow>%cost%"
+    - ""
+    - "<green>ᴄʟɪᴄᴋ ᴛʜᴇ ɢʀᴇᴇɴ ᴘᴀɴᴇ ᴛᴏ ᴄᴏɴꜰɪʀᴍ"
+    - "<red>ᴄʟɪᴄᴋ ᴛʜᴇ ʀᴇᴅ ᴘᴀɴᴇ ᴛᴏ ᴄᴀɴᴄᴇʟ"
+
+vendor:
+  linked: "<green>ᴠᴇɴᴅᴏʀ ʟɪɴᴋᴇᴅ ᴛᴏ ᴄᴀᴛᴀʟᴏɢ <yellow>%catalog%<green>."
+  unlinked: "<red>ᴛʜɪs ᴠᴇɴᴅᴏʀ ʜᴀs ɴᴏ ᴀssᴏᴄɪᴀᴛᴇᴅ ᴄᴀᴛᴀʟᴏɢ."
+  spawned: "<green>ᴠᴇɴᴅᴏʀ ᴇɴᴛɪᴛʏ sᴘᴀᴡɴᴇᴅ ᴀᴛ ʏᴏᴜʀ ʟᴏᴄᴀᴛɪᴏɴ."
+
+catalog:
+  renamed: "<green>ᴄᴀᴛᴀʟᴏɢ ʀᴇɴᴀᴍᴇᴅ ᴛᴏ <yellow>%name%<green>."
+  access-updated: "<green>ᴄᴀᴛᴀʟᴏɢ ᴀᴄᴄᴇss ᴜᴘᴅᴀᴛᴇᴅ ᴛᴏ <yellow>%access%<green>."
+  directive-updated: "<green>ᴄᴀᴛᴀʟᴏɢ ᴅɪʀᴇᴄᴛɪᴠᴇ ᴜᴘᴅᴀᴛᴇᴅ ᴛᴏ <yellow>%directive%<green>."
+  duplicate: "%input% ᴀʟʀᴇᴀᴅʏ ᴇxɪsᴛs ᴀs ᴀ ᴄᴀᴛᴀʟᴏɢ ɴᴀᴍᴇ."
+  not-found: "<red>ɴᴏ ᴄᴀᴛᴀʟᴏɢ ꜰᴏᴜɴᴅ ᴡɪᴛʜ ɪᴅᴇɴᴛɪꜰɪᴇʀ %input%."
+  removed: "<yellow>%catalog% <red>ʀᴇᴍᴏᴠᴇᴅ."
+  suspended: "<red>ᴛʜɪs ᴄᴀᴛᴀʟᴏɢ ɪs ᴄᴜʀʀᴇɴᴛʟʏ sᴜsᴘᴇɴᴅᴇᴅ."
+  created: "<green>ᴄᴀᴛᴀʟᴏɢ ᴄʀᴇᴀᴛᴇᴅ."
+  header: "%catalog% - %section% - %mode%"
+  mode-acquire: "ᴀᴄǫᴜɪʀᴇ"
+  mode-liquidate: "ʟɪǫᴜɪᴅᴀᴛᴇ"
+  mode-barter: "ʙᴀʀᴛᴇʀ"
+
+citizen:
+  catalog-not-found: "<red>ᴛʜᴇ ᴄᴀᴛᴀʟᴏɢ (<yellow>%catalog%<red>) ʟɪɴᴋᴇᴅ ᴛᴏ ᴛʜɪs ɴᴘᴄ ɴᴏ ʟᴏɴɢᴇʀ ᴇxɪsᴛs."
+
+section:
+  renamed: "<green>sᴇᴄᴛɪᴏɴ ʀᴇɴᴀᴍᴇᴅ ᴛᴏ <yellow>%name%<green>."
+  resized: "<green>sᴇᴄᴛɪᴏɴ ʀᴇsɪᴢᴇᴅ ᴛᴏ <yellow>%size%<green>."
+  access-updated: "<green>sᴇᴄᴛɪᴏɴ ᴀᴄᴄᴇss ᴜᴘᴅᴀᴛᴇᴅ ᴛᴏ <yellow>%access%<green>."
+  duplicate: "%input% ᴀʟʀᴇᴀᴅʏ ᴇxɪsᴛs ɪɴ ᴛʜɪs ᴄᴀᴛᴀʟᴏɢ."
+  removed: "<yellow>%name% <red>ʀᴇᴍᴏᴠᴇᴅ."
+
+clipboard:
+  acquire-copied: "<green>ᴀᴄǫᴜɪʀᴇ ᴄᴀᴛᴀʟᴏɢ sɴᴀᴘsʜᴏᴛ sᴀᴠᴇᴅ."
+  liquidate-copied: "<green>ʟɪǫᴜɪᴅᴀᴛᴇ ᴄᴀᴛᴀʟᴏɢ sɴᴀᴘsʜᴏᴛ sᴀᴠᴇᴅ."
+  barter-copied: "<green>ʙᴀʀᴛᴇʀ ᴄᴀᴛᴀʟᴏɢ sɴᴀᴘsʜᴏᴛ sᴀᴠᴇᴅ."
+  acquire-applied: "<green>ᴀᴄǫᴜɪʀᴇ sɴᴀᴘsʜᴏᴛ ᴀᴘᴘʟɪᴇᴅ ᴛᴏ ᴄᴜʀʀᴇɴᴛ ᴄᴀᴛᴀʟᴏɢ."
+  liquidate-applied: "<green>ʟɪǫᴜɪᴅᴀᴛᴇ sɴᴀᴘsʜᴏᴛ ᴀᴘᴘʟɪᴇᴅ ᴛᴏ ᴄᴜʀʀᴇɴᴛ ᴄᴀᴛᴀʟᴏɢ."
+  barter-applied: "<green>ʙᴀʀᴛᴇʀ sɴᴀᴘsʜᴏᴛ ᴀᴘᴘʟɪᴇᴅ ᴛᴏ ᴄᴜʀʀᴇɴᴛ ᴄᴀᴛᴀʟᴏɢ."
+
+listings:
+  notification-updated: "<green>ʙʀᴏᴀᴅᴄᴀsᴛ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ ᴜᴘᴅᴀᴛᴇᴅ ᴛᴏ %content%."
+  quota-duration-updated: "<green>ǫᴜᴏᴛᴀ ʀᴇsᴇᴛ ɪɴᴛᴇʀᴠᴀʟ ᴄʜᴀɴɢᴇᴅ ᴛᴏ %interval%."
+  quota-updated: "<green>ǫᴜᴏᴛᴀ ʟɪᴍɪᴛ ᴄʜᴀɴɢᴇᴅ ᴛᴏ %limit%."
+  display-renamed: "<green>ʟɪsᴛɪɴɢ ᴅɪsᴘʟᴀʏ ɴᴀᴍᴇ ᴄʜᴀɴɢᴇᴅ ᴛᴏ %name%."
+  access-updated: "<green>ʟɪsᴛɪɴɢ ᴀᴄᴄᴇss ᴜᴘᴅᴀᴛᴇᴅ ᴛᴏ %access%."
+  annotation-removed: "<red>%line% ʀᴇᴍᴏᴠᴇᴅ."
+  annotation-added: "<green>%line% ᴀᴅᴅᴇᴅ."
+  annotation-modified: "<green>ᴀɴɴᴏᴛᴀᴛɪᴏɴ ᴍᴏᴅɪꜰɪᴇᴅ ᴛᴏ %line%."
+  directive-removed: "<red>%directive% ʀᴇᴍᴏᴠᴇᴅ."
+  directive-added: "<green>%directive% ᴀᴅᴅᴇᴅ."
+  directive-modified: "<green>ᴅɪʀᴇᴄᴛɪᴠᴇ ᴍᴏᴅɪꜰɪᴇᴅ ᴛᴏ %directive%."
+  restricted: "<red>ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀᴄᴄᴇss ᴛᴏ ᴛʜɪs ʟɪsᴛɪɴɢ."
+
+display-metadata:
+  cost: "<dark_aqua>ᴄᴏsᴛ: <yellow>%amount%"
+  reduction-start: "<gray>ʀᴇᴅᴜᴄᴛɪᴏɴ sᴛᴀʀᴛ: <gold>%timestamp%"
+  reduction-amount: "<aqua>ʀᴇᴅᴜᴄᴇᴅ ᴄᴏsᴛ: <red>%amount%"
+  reduction-window: "<aqua>ʀᴇᴅᴜᴄᴛɪᴏɴ ᴡɪɴᴅᴏᴡ: %duration%"
+  reduction-end: "<aqua>ʀᴇᴅᴜᴄᴛɪᴏɴ ᴇɴᴅ: %timestamp%"
+  quota-progress: "<gray>⛃ ǫᴜᴏᴛᴀ: <white>%current%<gray>/<white>%maximum%"
+  quota-remaining: "<dark_gray>  ⏳ <gray>ʀᴇsᴇᴛs ɪɴ: <white>%remaining%"
+  receivable-items: "<aqua>ʀᴇᴄᴇɪᴠᴀʙʟᴇ ɪᴛᴇᴍs:"
+  required-items: "<aqua>ʀᴇǫᴜɪʀᴇᴅ ɪᴛᴇᴍs:"
+  barter-cost: "<green>ʙᴀʀᴛᴇʀ ᴄᴏsᴛ: %amount%"

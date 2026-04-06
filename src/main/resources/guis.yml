@@ -1,0 +1,266 @@
+# ============================================================================
+#  SovereignTraders — GUI Configuration
+#  All visual elements for every plugin GUI live here.
+#  Text values support MiniMessage format.  Legacy &-codes are auto-converted.
+# ============================================================================
+
+# ─── Catalog Browser ─────────────────────────────────────────────────────────
+catalog:
+  filler-material: BLACK_STAINED_GLASS_PANE
+  click-acquire: "<dark_gray>◆ <white>ᴄʟɪᴄᴋ ᴛᴏ ᴀᴄǫᴜɪʀᴇ"
+  click-liquidate: "<dark_gray>◆ <white>ᴄʟɪᴄᴋ ᴛᴏ ʟɪǫᴜɪᴅᴀᴛᴇ"
+  click-barter: "<dark_gray>◆ <white>ᴄʟɪᴄᴋ ᴛᴏ ʙᴀʀᴛᴇʀ"
+  shift-click-hint: "<dark_gray>◆ <aqua>sʜɪꜰᴛ-ᴄʟɪᴄᴋ ꜰᴏʀ ʙᴜʟᴋ"
+
+# ─── Listing Display ─────────────────────────────────────────────────────────
+listing:
+  barter-required-label: "<red>ʀᴇǫᴜɪʀᴇᴅ:"
+  barter-receive-label: "<green>ʀᴇᴄᴇɪᴠᴇ:"
+  reduction-badge: "<light_purple>⧖ ʟɪᴍɪᴛᴇᴅ ᴏꜰꜰᴇʀ"
+  catalog-reduction-badge: "<light_purple>⧖ sᴛᴏʀᴇᴡɪᴅᴇ sᴀʟᴇ"
+
+# ─── Confirmation GUI ─────────────────────────────────────────────────────────
+confirmation:
+  enabled: true
+  title: "%item% - ᴄᴏɴꜰɪʀᴍ - %mode%"
+  confirm-material: LIME_STAINED_GLASS_PANE
+  confirm-label: "<green><bold>✔ ᴄᴏɴꜰɪʀᴍ"
+  cancel-material: RED_STAINED_GLASS_PANE
+  cancel-label: "<red><bold>✘ ᴄᴀɴᴄᴇʟ"
+  filler-material: BLACK_STAINED_GLASS_PANE
+
+# ─── Quantity Selector GUI ───────────────────────────────────────────────────
+quantity-selector:
+  enabled: true
+  title: "%item% - sᴇʟᴇᴄᴛ ǫᴜᴀɴᴛɪᴛʏ"
+  preset-material: LIGHT_BLUE_STAINED_GLASS_PANE
+  selected-material: LIME_STAINED_GLASS_PANE
+  cancel-material: RED_STAINED_GLASS_PANE
+  cancel-label: "<red><bold>✘ ᴄᴀɴᴄᴇʟ"
+  filler-material: BLACK_STAINED_GLASS_PANE
+
+# ─── Catalog Editor ───────────────────────────────────────────────────────────
+editor:
+  title: "<white><bold>ᴇᴅɪᴛᴏʀ</bold> <gray>» <yellow>%catalog% <gray>[<white>%mode%<gray>]"
+  placeholder-material: LIME_STAINED_GLASS_PANE
+  placeholder-name: "<green><bold>+ ᴀᴅᴅ ɪᴛᴇᴍ"
+  placeholder-lore:
+    - "<gray>ᴘɪᴄᴋ ᴜᴘ ᴀɴ ɪᴛᴇᴍ ꜰʀᴏᴍ ʏᴏᴜʀ"
+    - "<gray>ɪɴᴠᴇɴᴛᴏʀʏ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ʜᴇʀᴇ"
+  filler-material: GRAY_STAINED_GLASS_PANE
+  mode-name: "<yellow>ᴍᴏᴅᴇ: <white>%mode%"
+  mode-lore: "<gray>ᴄʟɪᴄᴋ ᴛᴏ ᴄʏᴄʟᴇ ᴍᴏᴅᴇs"
+  save-material: EMERALD
+  save-name: "<green><bold>sᴀᴠᴇ & ᴄʟᴏsᴇ"
+  save-lore: "<gray>ᴘᴇʀsɪsᴛs ᴀʟʟ ᴄʜᴀɴɢᴇs"
+  quota-material: CLOCK
+  quota-name: "<aqua><bold>ǫᴜᴏᴛᴀ"
+  quota-lore: "<gray>sᴇᴛ ǫᴜᴏᴛᴀ ꜰᴏʀ ᴀʟʟ ʟɪsᴛɪɴɢs ɪɴ ᴛʜɪs ᴍᴏᴅᴇ"
+  add-material: HOPPER
+  add-name: "<aqua><bold>ᴀᴅᴅ ꜰʀᴏᴍ ʜᴀɴᴅ"
+  add-lore:
+    - "<gray>ᴜɴᴜsᴇᴅ"
+  listing-lore:
+    - "<dark_gray>ᴜɪᴅ: %uid%"
+    - "<green>ʙᴜʏ: %buy%"
+    - "<gold>sᴇʟʟ: %sell%"
+    - "<gray>⛃ ǫᴜᴏᴛᴀ: <white>%quota% <dark_gray>| <gray>ʀᴇsᴇᴛ: <white>%reset%"
+    - ""
+    - "<yellow>ʟᴇꜰᴛ-ᴄʟɪᴄᴋ → ᴇᴅɪᴛ ᴘʀɪᴄᴇs"
+    - "<aqua>sʜɪꜰᴛ-ᴄʟɪᴄᴋ → ᴇᴅɪᴛ ǫᴜᴏᴛᴀ"
+    - "<red>ʀɪɢʜᴛ-ᴄʟɪᴄᴋ → ʀᴇᴍᴏᴠᴇ"
+
+# ─── Navigation Bar ──────────────────────────────────────────────────────────
+navigation:
+  retreat:
+    slots:
+      - 2
+    anchor: floor
+    material: EMERALD_BLOCK
+    label: "<green>ᴘʀᴇᴠɪᴏᴜs"
+  advance:
+    slots:
+      - 6
+    anchor: floor
+    material: EMERALD_BLOCK
+    label: "<green>ɴᴇxᴛ"
+  dismiss:
+    slots:
+      - 4
+    anchor: floor
+    material: REDSTONE_BLOCK
+    label: "<red>ᴄʟᴏsᴇ"
+
+# ─── Mode Toggle ─────────────────────────────────────────────────────────────
+mode-toggle:
+  slot: 8
+  anchor: floor
+  acquire:
+    material: GOLDEN_APPLE
+    label: "<green>ᴀᴄǫᴜɪʀᴇ"
+  liquidate:
+    material: STONE
+    label: "<gold>ʟɪǫᴜɪᴅᴀᴛᴇ"
+  barter:
+    material: REDSTONE_BLOCK
+    label: "<aqua>ʙᴀʀᴛᴇʀ"
+
+# ─── Dynamic Pricing Dashboard — Market Overview ─────────────────────────────
+dashboard:
+  overview:
+    title: "<white><bold>sᴠᴛ ᴍᴀʀᴋᴇᴛ"
+    filler-material: BLACK_STAINED_GLASS_PANE
+
+    pause-active-material: RED_DYE
+    pause-active-label: "<red><bold>⏸ ᴘᴀᴜsᴇ"
+    pause-active-lore:
+      - "<gray>ᴛᴏɢɢʟᴇ ᴅʏɴᴀᴍɪᴄ ᴘʀɪᴄɪɴɢ"
+      - "<yellow>ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ"
+    pause-paused-material: LIME_DYE
+    pause-paused-label: "<green><bold>▶ ʀᴇsᴜᴍᴇ"
+    pause-paused-lore:
+      - "<gray>ᴛᴏɢɢʟᴇ ᴅʏɴᴀᴍɪᴄ ᴘʀɪᴄɪɴɢ"
+      - "<green>ᴄᴜʀʀᴇɴᴛʟʏ ᴘᴀᴜsᴇᴅ"
+
+    panic-material: TNT
+    panic-label: "<red><bold>☠ ᴘᴀɴɪᴄ ʀᴇsᴇᴛ"
+    panic-lore:
+      - "<gray>ʀᴇsᴇᴛ ᴀʟʟ ᴘʀɪᴄᴇs ᴛᴏ ʙᴀsᴇ"
+      - "<red>⚠ ᴛʜɪs ᴄᴀɴɴᴏᴛ ʙᴇ ᴜɴᴅᴏɴᴇ"
+
+    close-material: BARRIER
+    close-label: "<red><bold>✘ ᴄʟᴏsᴇ"
+
+    info-material: BOOK
+    info-label: "<aqua><bold>ɪɴꜰᴏ"
+    info-lore:
+      - "<gray>ᴛʀᴀᴄᴋᴇᴅ: <white>%tracked% <dark_gray>| <gray>ᴠɪsɪʙʟᴇ: <white>%visible%"
+      - "<gray>ᴘᴀɢᴇ: <white>%page%<gray>/<white>%pages%"
+      - "<gray>ᴀᴠɢ ᴍᴜʟᴛɪᴘʟɪᴇʀ: <white>%avg_multiplier%x"
+      - "<gray>ꜰʀᴏᴢᴇɴ: <aqua>%frozen% <dark_gray>| <gray>ᴏᴠᴇʀʀɪᴅᴅᴇɴ: <light_purple>%overridden%"
+      - "<gray>sᴛᴀᴛᴇ: <white>%state%"
+      - ""
+      - "<gray>ᴅʏɴᴀᴍɪᴄ ᴘʀɪᴄɪɴɢ ʀᴀɪsᴇs ᴘʀɪᴄᴇs"
+      - "<gray>ᴡʜᴇɴ ᴅᴇᴍᴀɴᴅ ɪɴᴄʀᴇᴀsᴇs, ᴀɴᴅ"
+      - "<gray>ʟᴏᴡᴇʀs ᴛʜᴇᴍ ᴡʜᴇɴ sᴜᴘᴘʟʏ ʙᴜɪʟᴅs"
+
+    search-material: NAME_TAG
+    search-label: "<white><bold>sᴇᴀʀᴄʜ"
+    search-lore:
+      - "<gray>ǫᴜᴇʀʏ: <white>%query%"
+      - "<yellow>ᴄʟɪᴄᴋ → sᴇᴛ sᴇᴀʀᴄʜ"
+      - "<red>sʜɪꜰᴛ-ᴄʟɪᴄᴋ → ᴄʟᴇᴀʀ"
+
+    filter-material: HOPPER
+    filter-label: "<gold><bold>ꜰɪʟᴛᴇʀ"
+    filter-lore:
+      - "<gray>ᴄᴜʀʀᴇɴᴛ: <white>%filter%"
+      - "<yellow>ᴄʟɪᴄᴋ → ᴄʏᴄʟᴇ"
+
+    sort-material: COMPASS
+    sort-label: "<green><bold>sᴏʀᴛ"
+    sort-lore:
+      - "<gray>ᴄᴜʀʀᴇɴᴛ: <white>%sort%"
+      - "<yellow>ᴄʟɪᴄᴋ → ᴄʏᴄʟᴇ"
+
+  # ─── Listing Detail View ──────────────────────────────────────────────────
+  detail:
+    title: "<white><bold>sᴠᴛ ᴍᴀʀᴋᴇᴛ</bold> <gray>» <yellow>#%uid%"
+    filler-material: BLACK_STAINED_GLASS_PANE
+
+    stats-material: COMPASS
+    stats-label: "<white><bold>ᴀᴄᴛɪᴠɪᴛʏ"
+
+    sparkline-up-material: LIME_STAINED_GLASS_PANE
+    sparkline-up-label: "<green>▲ ᴘʀɪᴄᴇ ᴜᴘ"
+    sparkline-down-material: RED_STAINED_GLASS_PANE
+    sparkline-down-label: "<red>▼ ᴘʀɪᴄᴇ ᴅᴏᴡɴ"
+    sparkline-stable-material: LIGHT_GRAY_STAINED_GLASS_PANE
+    sparkline-stable-label: "<gray>— sᴛᴀʙʟᴇ"
+
+    peak-material: GOLD_INGOT
+    peak-label: "<gold><bold>ᴘᴇᴀᴋ ᴘʀɪᴄᴇ"
+    lowest-material: IRON_INGOT
+    lowest-label: "<aqua><bold>ʟᴏᴡᴇsᴛ ᴘʀɪᴄᴇ"
+
+    freeze-frozen-material: PACKED_ICE
+    freeze-frozen-label: "<green><bold>❄ ᴜɴꜰʀᴇᴇᴢᴇ"
+    freeze-frozen-lore: "<green>ᴜɴꜰʀᴇᴇᴢᴇ ᴛʜɪs ʟɪsᴛɪɴɢ"
+    freeze-active-material: BLUE_ICE
+    freeze-active-label: "<aqua><bold>❄ ꜰʀᴇᴇᴢᴇ"
+    freeze-active-lore: "<gray>ꜰʀᴇᴇᴢᴇ ᴀᴛ ᴄᴜʀʀᴇɴᴛ ᴘʀɪᴄᴇ"
+
+    reset-material: SUNFLOWER
+    reset-label: "<yellow><bold>↺ ʀᴇsᴇᴛ"
+    reset-lore:
+      - "<gray>sɴᴀᴘ ʙᴀᴄᴋ ᴛᴏ ʙᴀsᴇ ᴘʀɪᴄᴇ"
+      - "<gray>ᴄʟᴇᴀʀs ᴀᴄᴄᴜᴍᴜʟᴀᴛᴇᴅ ᴘʀᴇssᴜʀᴇ"
+
+    override-material: ANVIL
+    override-label: "<light_purple><bold>⚙ ᴏᴠᴇʀʀɪᴅᴇ"
+    override-lore:
+      - "<gray>sᴇᴛ ᴀ ᴍᴀɴᴜᴀʟ ᴘʀɪᴄᴇ ᴍᴜʟᴛɪᴘʟɪᴇʀ"
+      - "<gray>ᴛʏᴘᴇ ᴀ ᴍᴜʟᴛɪᴘʟɪᴇʀ ɪɴ ᴄʜᴀᴛ (ᴇ.ɢ. 1.5)"
+    clear-override-material: STRUCTURE_VOID
+    clear-override-label: "<red><bold>✘ ᴄʟᴇᴀʀ ᴏᴠᴇʀʀɪᴅᴇ"
+    clear-override-lore: "<gray>ʀᴇᴍᴏᴠᴇ ᴍᴀɴᴜᴀʟ ᴏᴠᴇʀʀɪᴅᴇ"
+
+    back-material: ARROW
+    back-label: "<white><bold>← ʙᴀᴄᴋ"
+    close-material: BARRIER
+    close-label: "<red><bold>✘ ᴄʟᴏsᴇ"
+
+    preview-label: "<white><bold>ʟɪsᴛɪɴɢ #%uid%"
+
+    current-material: GOLD_INGOT
+    current-label: "<gold><bold>ᴄᴜʀʀᴇɴᴛ ᴘʀɪᴄᴇ"
+    current-lore:
+      - "<gray>ʙᴀsᴇ: <yellow>$%base%"
+      - "<gray>ᴍᴜʟᴛɪᴘʟɪᴇʀ: <white>%multiplier%x"
+      - "<gray>sʜɪꜰᴛ: <white>%shift%%"
+      - "<gray>ᴇꜰꜰᴇᴄᴛɪᴠᴇ: <gold>$%effective%"
+      - ""
+      - "<gray>ᴘᴇᴀᴋ: <yellow>$%peak%"
+      - "<gray>ʟᴏᴡᴇsᴛ: <aqua>$%lowest%"
+
+    status-material: COMPARATOR
+    status-label: "<white><bold>sᴛᴀᴛᴜs"
+    status-lore:
+      - "<gray>ɢʟᴏʙᴀʟ: <white>%global_state%"
+      - "<gray>ʟɪsᴛɪɴɢ: <white>%listing_state%"
+      - "<gray>ᴏᴠᴇʀʀɪᴅᴇ: <white>%override%"
+      - "<gray>ʟᴀsᴛ ᴄʜᴀɴɢᴇ: <white>%last_change%"
+
+    help-material: BOOK
+    help-label: "<aqua><bold>ʜᴇʟᴘ"
+    help-lore:
+      - "<gray>❄ ꜰʀᴇᴇᴢᴇ ʟᴏᴄᴋs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ"
+      - "<gray>  ᴍᴜʟᴛɪᴘʟɪᴇʀ ɪɴ ᴘʟᴀᴄᴇ"
+      - "<gray>↺ ʀᴇsᴇᴛ ᴄʟᴇᴀʀs ᴀᴄᴄᴜᴍᴜʟᴀᴛᴇᴅ"
+      - "<gray>  ᴠᴏʟᴜᴍᴇ ᴘʀᴇssᴜʀᴇ"
+      - "<gray>⚙ ᴏᴠᴇʀʀɪᴅᴇ sᴇᴛs ᴀ ᴍᴀɴᴜᴀʟ"
+      - "<gray>  ᴍᴜʟᴛɪᴘʟɪᴇʀ ᴠɪᴀ ᴄʜᴀᴛ ɪɴᴘᴜᴛ"
+
+  # ─── Overview Item Lore Templates ─────────────────────────────────────────
+  lore:
+    multiplier-line: "<gray>ᴍᴜʟᴛɪᴘʟɪᴇʀ: <white>%multiplier%x %trend_color%%trend% %sign%%shift%%"
+    base-price-line: "<gray>ʙᴀsᴇ ᴘʀɪᴄᴇ: <yellow>$%base%"
+    effective-line: "<gray>ᴇꜰꜰᴇᴄᴛɪᴠᴇ: <gold>$%effective%"
+    volume-line: "<gray>ᴠᴏʟᴜᴍᴇ: <green>%buys% ʙᴏᴜɢʜᴛ <dark_gray>/ <red>%sells% sᴏʟᴅ"
+    demand-line: "<gray>ᴅᴇᴍᴀɴᴅ sᴄᴏʀᴇ: <yellow>%score%x"
+    supply-line: "<gray>sᴜᴘᴘʟʏ ᴘʀᴇssᴜʀᴇ: <aqua>%pressure%x"
+    frozen-badge: "<aqua>❄ ꜰʀᴏᴢᴇɴ"
+    overridden-badge: "<light_purple>⚙ ᴏᴠᴇʀʀɪᴅᴅᴇɴ"
+    paused-badge: "<red>⏸ ɢʟᴏʙᴀʟʟʏ ᴘᴀᴜsᴇᴅ"
+    click-detail: "<dark_gray>◆ <white>ᴄʟɪᴄᴋ ꜰᴏʀ ᴅᴇᴛᴀɪʟs"
+
+    # Stats panel lore lines
+    stats-name-line: "<gray>ɴᴀᴍᴇ: <white>%name%"
+    stats-buys-line: "<gray>ᴛᴏᴛᴀʟ ʙᴜʏs: <green>%buys%"
+    stats-sells-line: "<gray>ᴛᴏᴛᴀʟ sᴇʟʟs: <red>%sells%"
+    stats-demand-line: "<gray>ᴅᴇᴍᴀɴᴅ sᴄᴏʀᴇ: <yellow>%score%x"
+    stats-supply-line: "<gray>sᴜᴘᴘʟʏ ᴘʀᴇssᴜʀᴇ: <aqua>%pressure%x"
+
+    # History item lore lines
+    history-multiplier-line: "<gray>ᴍᴜʟᴛɪᴘʟɪᴇʀ: <white>%multiplier%x"
+    history-volume-line: "<gray>ʙᴜʏs: <green>%buys% <dark_gray>/ <gray>sᴇʟʟs: <red>%sells%"

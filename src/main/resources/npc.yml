@@ -1,0 +1,82 @@
+# ============================================================================
+#  NPC Configuration — Vendor Presets
+#  All text values support MiniMessage. Legacy &-codes are auto-converted.
+#
+#  Spawn a preset:  /sovereign vendor spawn <preset>
+#  Spawn raw:       /sovereign vendor spawn <skin> <entity-type>
+# ============================================================================
+
+# Global defaults applied to every vendor unless overridden by a preset.
+defaults:
+  entity-type: PLAYER
+  look-close-radius: 5.0
+  interaction-width: 0.8
+  interaction-height: 1.8
+  hologram:
+    - "<dark_gray><st>                    </st>"
+    - "<yellow>ʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ᴛʀᴀᴅᴇ"
+    - "<dark_gray><st>                    </st>"
+
+# Named presets. Each key is the preset name used in the spawn command.
+# Any property omitted from a preset inherits from 'defaults' above.
+#
+# Available properties:
+#   entity-type          PLAYER, VILLAGER, ZOMBIE, SKELETON, WANDERING_TRADER,
+#                        PIGLIN, WITCH, IRON_GOLEM, SNOW_GOLEM, ENDERMAN,
+#                        BLAZE, ALLAY, FOX, CAT, WOLF
+#   skin                 Minecraft username whose skin to clone (PLAYER only)
+#   hologram             List of MiniMessage lines (bottom-up)
+#   look-close-radius    Head-tracking distance in blocks (0 = disabled)
+#   interaction-width    Hitbox width (default 0.8)
+#   interaction-height   Hitbox height (default 1.8)
+#   catalog              Auto-link to this catalog on spawn
+presets:
+  trader:
+    skin: "Notch"
+    hologram:
+      - "<dark_gray><st>                    </st>"
+      - "<gray>ʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ᴛʀᴀᴅᴇ"
+      - "<gold><bold>ᴛʀᴀᴅᴇʀ</bold>"
+      - "<dark_gray><st>                    </st>"
+      - "<gradient:#FFD700:#FFA500>★ sᴏᴠᴇʀᴇɪɢɴ ᴛʀᴀᴅᴇʀ ★</gradient>"
+
+  wanderer:
+    entity-type: WANDERING_TRADER
+    hologram:
+      - "<dark_gray><st>                    </st>"
+      - "<gray>ʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ᴛʀᴀᴅᴇ"
+      - "<aqua><bold>ᴡᴀɴᴅᴇʀɪɴɢ ᴛʀᴀᴅᴇʀ</bold>"
+      - "<dark_gray><st>                    </st>"
+      - "<gradient:#00D4FF:#0099DB>☁ ᴡᴀɴᴅᴇʀɪɴɢ ᴍᴇʀᴄʜᴀɴᴛ ☁</gradient>"
+    look-close-radius: 8.0
+
+  villager:
+    entity-type: VILLAGER
+    hologram:
+      - "<dark_gray><st>                    </st>"
+      - "<gray>ʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ᴛʀᴀᴅᴇ"
+      - "<green><bold>ᴠɪʟʟᴀɢᴇʀ</bold>"
+      - "<dark_gray><st>                    </st>"
+      - "<gradient:#32CD32:#228B22>⚘ ᴠɪʟʟᴀɢᴇ sʜᴏᴘ ⚘</gradient>"
+
+# ============================================================================
+#  Active Vendors — auto-populated when vendors are spawned
+#
+#  Edit any property below, then run /sovereign reload to apply changes.
+#  New vendors appear here automatically. Removing a section here does NOT
+#  delete the in-world entity; it will be re-added on next recovery.
+#
+#  Editable properties:
+#    entity-type          Change the mob type (PLAYER, VILLAGER, etc.)
+#    skin                 Minecraft username for skin (PLAYER only)
+#    hologram             MiniMessage lines (bottom-up)
+#    look-close-radius    Head-tracking distance (0 = disabled)
+#    interaction-width    Hitbox width
+#    interaction-height   Hitbox height
+#    catalog              Linked catalog identifier
+#
+#  Read-only / machine-managed:
+#    location             Recorded for reference — changes are NOT applied
+#    equipment            Base64-encoded items — use /sovereign vendor equip
+# ============================================================================
+vendors: {}
