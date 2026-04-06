@@ -575,8 +575,11 @@ class CatalogSessionManager(private val plugin: SovereignCore) {
                 val clone = itemTemplate.clone().apply { amount = listing.stackQuantity }
                 val overflow = player.inventory.addItem(clone)
                 if (overflow.isNotEmpty()) {
-                    overflow.values.forEach { leftover ->
-                        player.inventory.removeItem(leftover)
+                    val overflowCount = overflow.values.sumOf { it.amount }
+                    val addedCount = listing.stackQuantity - overflowCount
+                    if (addedCount > 0) {
+                        val undo = itemTemplate.clone().apply { amount = addedCount }
+                        player.inventory.removeItem(undo)
                     }
                     plugin.currencyBridge.deposit(player, cost)
                     locale.dispatch(player, "operations.inventory-full")
