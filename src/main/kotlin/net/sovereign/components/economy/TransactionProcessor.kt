@@ -47,8 +47,11 @@ object TransactionProcessor {
         val clone = listing.clone().apply { amount = quantity }
         val overflow = player.inventory.addItem(clone)
         if (overflow.isNotEmpty()) {
-            overflow.values.forEach { leftover ->
-                player.inventory.removeItem(leftover)
+            val overflowCount = overflow.values.sumOf { it.amount }
+            val addedCount = quantity - overflowCount
+            if (addedCount > 0) {
+                val undo = listing.clone().apply { amount = addedCount }
+                player.inventory.removeItem(undo)
             }
             bridge.deposit(player, totalCost)
             return TransactionResult.InventoryFull

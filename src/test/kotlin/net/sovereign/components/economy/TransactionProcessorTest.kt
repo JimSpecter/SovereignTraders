@@ -1,9 +1,47 @@
 package net.sovereign.components.economy
 
+import net.sovereign.core.SovereignCore
+import org.bukkit.entity.Player
+import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.PlayerInventory
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.mockito.kotlin.*
 
 class TransactionProcessorTest {
+
+    @Test
+    fun `executeAcquisition overflow removes only the added amount not the overflow`() {
+        val inventory = mock<PlayerInventory>()
+        val player = mock<Player> {
+            on { getInventory() } doReturn inventory
+        }
+
+        val addClone = mock<ItemStack>()
+        val undoClone = mock<ItemStack>()
+        val listing = mock<ItemStack>()
+        whenever(listing.clone()).thenReturn(addClone, undoClone)
+
+        val bridge = mock<CurrencyBridge> {
+            on { hasBalance(eq(player), any()) } doReturn true
+            on { withdraw(eq(player), any()) } doReturn true
+            on { deposit(eq(player), any()) } doReturn true
+        }
+        val plugin = mock<SovereignCore> {
+            on { currencyBridge } doReturn bridge
+        }
+
+        val overflowItem = mock<ItemStack> {
+            on { amount } doReturn 54
+        }
+        whenever(inventory.addItem(any<ItemStack>())).thenReturn(hashMapOf(0 to overflowItem))
+
+        val result = TransactionProcessor.executeAcquisition(player, listing, 64, 1.0, plugin)
+
+        assertEquals(TransactionResult.InventoryFull, result)
+        verify(undoClone).amount = 10
+        verify(inventory).removeItem(undoClone)
+    }
 
     @Test
     fun `computeCost basic unit cost no discount`() {
