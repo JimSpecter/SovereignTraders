@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.4
+
+### Bug Fix
+- **Inventory Full Rollback** — Fixed items being incorrectly removed from a player's existing inventory when a purchase could not fit.
+
+---
+
 ## v1.0.3
 
 ### Breaking Change
