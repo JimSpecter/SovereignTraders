@@ -44,16 +44,16 @@ object TransactionProcessor {
             return TransactionResult.InsufficientFunds(totalCost)
         }
 
+        val snapshot = player.inventory.storageContents.map { it?.clone() }.toTypedArray()
         val clone = listing.clone().apply { amount = quantity }
         val overflow = player.inventory.addItem(clone)
         if (overflow.isNotEmpty()) {
-            val overflowCount = overflow.values.sumOf { it.amount }
-            val addedCount = quantity - overflowCount
-            if (addedCount > 0) {
-                val undo = listing.clone().apply { amount = addedCount }
-                player.inventory.removeItem(undo)
+            player.inventory.storageContents = snapshot
+            if (!bridge.deposit(player, totalCost)) {
+                plugin.logger.severe(
+                    "CRITICAL: Refund of $totalCost to ${player.name} (${player.uniqueId}) failed after acquisition rollback"
+                )
             }
-            bridge.deposit(player, totalCost)
             return TransactionResult.InventoryFull
         }
 
@@ -77,6 +77,7 @@ object TransactionProcessor {
 
         val totalReward = unitReward * effectiveQty
 
+        val snapshot = player.inventory.storageContents.map { it?.clone() }.toTypedArray()
         val target = listing.clone().apply { amount = effectiveQty }
         player.inventory.removeItem(target)
 
@@ -84,6 +85,7 @@ object TransactionProcessor {
         return if (deposited) {
             TransactionResult.Success(totalReward)
         } else {
+            player.inventory.storageContents = snapshot
             TransactionResult.LiquidationFailed("Economy provider rejected deposit.")
         }
     }
