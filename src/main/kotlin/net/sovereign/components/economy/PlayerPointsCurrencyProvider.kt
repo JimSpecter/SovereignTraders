@@ -1,5 +1,6 @@
 package net.sovereign.components.economy
 
+import kotlin.math.roundToInt
 import net.sovereign.core.SovereignCore
 import org.bukkit.entity.Player
 
@@ -46,7 +47,7 @@ class PlayerPointsCurrencyProvider(private val plugin: SovereignCore) : Currency
         return try {
 
             val method = api::class.java.getMethod("take", java.util.UUID::class.java, Int::class.java)
-            (method.invoke(api, player.uniqueId, amount.toInt()) as? Boolean) ?: false
+            (method.invoke(api, player.uniqueId, amount.roundToInt()) as? Boolean) ?: false
         } catch (_: Exception) { false }
     }
 
@@ -55,11 +56,11 @@ class PlayerPointsCurrencyProvider(private val plugin: SovereignCore) : Currency
         return try {
 
             val method = api::class.java.getMethod("give", java.util.UUID::class.java, Int::class.java)
-            (method.invoke(api, player.uniqueId, amount.toInt()) as? Boolean) ?: false
+            (method.invoke(api, player.uniqueId, amount.roundToInt()) as? Boolean) ?: false
         } catch (_: Exception) { false }
     }
 
     override fun hasBalance(player: Player, amount: Double): Boolean {
-        return balanceOf(player) >= amount
+        return balanceOf(player) >= amount.roundToInt().toDouble()
     }
 }
