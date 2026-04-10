@@ -73,6 +73,7 @@ object TransactionProcessor {
 
         val totalReward = unitReward * effectiveQty
 
+        val snapshot = player.inventory.storageContents.map { it?.clone() }.toTypedArray()
         val target = listing.clone().apply { amount = effectiveQty }
         player.inventory.removeItem(target)
 
@@ -80,6 +81,7 @@ object TransactionProcessor {
         return if (deposited) {
             TransactionResult.Success(totalReward)
         } else {
+            player.inventory.storageContents = snapshot
             TransactionResult.LiquidationFailed("Economy provider rejected deposit.")
         }
     }

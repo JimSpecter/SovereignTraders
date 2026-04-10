@@ -170,4 +170,72 @@ class TransactionProcessorTest {
         )
         assertEquals(0.0, cost, 0.001)
     }
+
+    @Test
+    fun `executeLiquidation restores inventory when deposit fails`() {
+        val inventory = mock<PlayerInventory>()
+        val player = mock<Player> {
+            on { getInventory() } doReturn inventory
+        }
+
+        val snapshotSlot0 = mock<ItemStack> {
+            on { amount } doReturn 32
+        }
+        val snapshotSlot0Clone = mock<ItemStack>()
+        whenever(snapshotSlot0.clone()).thenReturn(snapshotSlot0Clone)
+        whenever(snapshotSlot0.isSimilar(any())).thenReturn(true)
+        whenever(inventory.storageContents).thenReturn(arrayOf(snapshotSlot0))
+
+        val removeClone = mock<ItemStack>()
+        val listing = mock<ItemStack>()
+        whenever(listing.clone()).thenReturn(removeClone)
+
+        val bridge = mock<CurrencyBridge> {
+            on { deposit(eq(player), any()) } doReturn false
+        }
+        val plugin = mock<SovereignCore> {
+            on { currencyBridge } doReturn bridge
+        }
+
+        whenever(inventory.removeItem(any<ItemStack>())).thenReturn(hashMapOf())
+
+        val result = TransactionProcessor.executeLiquidation(player, listing, 10, 5.0, plugin)
+
+        assertTrue(result is TransactionResult.LiquidationFailed)
+        verify(inventory).storageContents = arrayOf(snapshotSlot0Clone)
+    }
+
+    @Test
+    fun `executeLiquidation does not restore inventory on successful deposit`() {
+        val inventory = mock<PlayerInventory>()
+        val player = mock<Player> {
+            on { getInventory() } doReturn inventory
+        }
+
+        val snapshotSlot0 = mock<ItemStack> {
+            on { amount } doReturn 32
+        }
+        val snapshotSlot0Clone = mock<ItemStack>()
+        whenever(snapshotSlot0.clone()).thenReturn(snapshotSlot0Clone)
+        whenever(snapshotSlot0.isSimilar(any())).thenReturn(true)
+        whenever(inventory.storageContents).thenReturn(arrayOf(snapshotSlot0))
+
+        val removeClone = mock<ItemStack>()
+        val listing = mock<ItemStack>()
+        whenever(listing.clone()).thenReturn(removeClone)
+
+        val bridge = mock<CurrencyBridge> {
+            on { deposit(eq(player), any()) } doReturn true
+        }
+        val plugin = mock<SovereignCore> {
+            on { currencyBridge } doReturn bridge
+        }
+
+        whenever(inventory.removeItem(any<ItemStack>())).thenReturn(hashMapOf())
+
+        val result = TransactionProcessor.executeLiquidation(player, listing, 10, 5.0, plugin)
+
+        assertEquals(TransactionResult.Success(50.0), result)
+        verify(inventory, never()).storageContents = any()
+    }
 }
