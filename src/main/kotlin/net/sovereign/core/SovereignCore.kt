@@ -178,11 +178,13 @@ class SovereignCore(val plugin: JavaPlugin, val pricingModule: PricingModule) {
         if (::quotaEnforcer.isInitialized) {
             quotaEnforcer.stop()
             quotaEnforcer.syncFromCatalogs()
+            quotaEnforcer.start()
         }
 
         if (::reductionScheduler.isInitialized) {
             reductionScheduler.stop()
             reductionScheduler.syncFromCatalogs()
+            reductionScheduler.start()
         }
 
         if (::vendorRegistry.isInitialized) vendorRegistry.syncFromConfig()

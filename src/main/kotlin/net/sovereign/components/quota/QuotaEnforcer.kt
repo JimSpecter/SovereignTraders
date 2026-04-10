@@ -65,6 +65,10 @@ class QuotaEnforcer(private val plugin: SovereignCore, private val ledger: Quota
         }
     }
 
+    fun start() {
+        startTickLoop()
+    }
+
     private fun startTickLoop() {
         task = net.sovereign.core.scheduler.SovereignScheduler.runTaskTimer(plugin.plugin, Runnable {
             globalTick++
