@@ -1,9 +1,19 @@
 # Changelog
 
-## v1.0.5
+## v1.0.6
 
 ### Bug Fix
+- **PlayerPoints Economic Drift** — Fractional prices (from dynamic multipliers, catalog discounts, or user-set decimal values) were silently floor-truncated when transacting with PlayerPoints. A cost of `10.75` would charge `10`, and a reward of `10.75` would pay `10`, causing systematic balance drift over time. All three operations — withdraw, deposit, and affordability check — now round to the nearest integer consistently.
+
+---
+
+## v1.0.5
+
+### Bug Fixes
 - **Reload Kills Timed Services** — Fixed quota reset timers and reduction window schedulers permanently stopping after a `/traders reload`. Both services now correctly restart their tick loops after reload instead of only re-syncing data.
+- **Acquisition Rollback Atomicity** — When a purchase failed due to a full inventory, the rollback incorrectly called `removeItem` on the player's existing inventory instead of restoring from a pre-transaction snapshot. Items the player already held could be erroneously consumed. Rollback now always restores from a cloned snapshot taken before any inventory mutation.
+- **Liquidation Rollback** — When a sell transaction's deposit was rejected by the economy provider, consumed items were not returned to the player. The player would lose their items with no payment. The inventory is now restored from snapshot on any deposit failure.
+- **Refund Failure Alerting** — If a refund deposit fails during an acquisition rollback, the failure is now logged at `SEVERE` so operators can identify and manually correct cases where a player lost both their money and their items.
 
 ---
 
