@@ -44,15 +44,11 @@ object TransactionProcessor {
             return TransactionResult.InsufficientFunds(totalCost)
         }
 
+        val snapshot = player.inventory.storageContents.map { it?.clone() }.toTypedArray()
         val clone = listing.clone().apply { amount = quantity }
         val overflow = player.inventory.addItem(clone)
         if (overflow.isNotEmpty()) {
-            val overflowCount = overflow.values.sumOf { it.amount }
-            val addedCount = quantity - overflowCount
-            if (addedCount > 0) {
-                val undo = listing.clone().apply { amount = addedCount }
-                player.inventory.removeItem(undo)
-            }
+            player.inventory.storageContents = snapshot
             bridge.deposit(player, totalCost)
             return TransactionResult.InventoryFull
         }

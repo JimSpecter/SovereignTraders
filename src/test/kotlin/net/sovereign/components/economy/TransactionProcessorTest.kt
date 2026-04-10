@@ -11,16 +11,20 @@ import org.mockito.kotlin.*
 class TransactionProcessorTest {
 
     @Test
-    fun `executeAcquisition overflow removes only the added amount not the overflow`() {
+    fun `executeAcquisition overflow restores inventory via snapshot not removeItem`() {
         val inventory = mock<PlayerInventory>()
         val player = mock<Player> {
             on { getInventory() } doReturn inventory
         }
 
+        val snapshotSlot0 = mock<ItemStack>()
+        val snapshotSlot0Clone = mock<ItemStack>()
+        whenever(snapshotSlot0.clone()).thenReturn(snapshotSlot0Clone)
+        whenever(inventory.storageContents).thenReturn(arrayOf(snapshotSlot0, null))
+
         val addClone = mock<ItemStack>()
-        val undoClone = mock<ItemStack>()
         val listing = mock<ItemStack>()
-        whenever(listing.clone()).thenReturn(addClone, undoClone)
+        whenever(listing.clone()).thenReturn(addClone)
 
         val bridge = mock<CurrencyBridge> {
             on { hasBalance(eq(player), any()) } doReturn true
@@ -39,8 +43,9 @@ class TransactionProcessorTest {
         val result = TransactionProcessor.executeAcquisition(player, listing, 64, 1.0, plugin)
 
         assertEquals(TransactionResult.InventoryFull, result)
-        verify(undoClone).amount = 10
-        verify(inventory).removeItem(undoClone)
+        verify(inventory).storageContents = arrayOf(snapshotSlot0Clone, null)
+        verify(inventory, never()).removeItem(any<ItemStack>())
+        verify(bridge).deposit(player, 64.0)
     }
 
     @Test
