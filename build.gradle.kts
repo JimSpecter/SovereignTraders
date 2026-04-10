@@ -61,6 +61,7 @@ dependencies {
     implementation("com.github.BitByLogics:Bits-Menus:1.1.0")
     implementation("com.github.TechnicallyCoded:FoliaLib:0.4.4")
     implementation(kotlin("stdlib"))
+    implementation("org.bstats:bstats-bukkit:3.2.1")
 
     compileOnly("su.nightexpress.coinsengine:CoinsEngine:2.6.0")
     compileOnly("org.black_ixx:playerpoints:3.3.3")
@@ -88,6 +89,7 @@ fun configureSharedShadow(task: com.github.jengelman.gradle.plugins.shadow.tasks
     task.relocate("org.intellij", "net.sovereign.libs.intellij")
     task.relocate("net.bitbylogic", "net.sovereign.libs.bitbylogic")
     task.relocate("com.tcoded.folialib", "net.sovereign.libs.folialib")
+    task.relocate("org.bstats", "net.sovereign.libs.bstats")
     task.mergeServiceFiles()
     task.configurations = listOf(project.configurations.runtimeClasspath.get())
     task.duplicatesStrategy = DuplicatesStrategy.EXCLUDE
