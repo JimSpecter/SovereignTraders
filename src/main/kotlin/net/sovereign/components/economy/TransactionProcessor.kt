@@ -49,7 +49,11 @@ object TransactionProcessor {
         val overflow = player.inventory.addItem(clone)
         if (overflow.isNotEmpty()) {
             player.inventory.storageContents = snapshot
-            bridge.deposit(player, totalCost)
+            if (!bridge.deposit(player, totalCost)) {
+                plugin.logger.severe(
+                    "CRITICAL: Refund of $totalCost to ${player.name} (${player.uniqueId}) failed after acquisition rollback"
+                )
+            }
             return TransactionResult.InventoryFull
         }
 

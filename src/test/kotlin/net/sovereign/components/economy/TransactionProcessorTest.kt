@@ -7,6 +7,7 @@ import org.bukkit.inventory.PlayerInventory
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.*
+import java.util.logging.Logger
 
 class TransactionProcessorTest {
 
@@ -46,6 +47,47 @@ class TransactionProcessorTest {
         verify(inventory).storageContents = arrayOf(snapshotSlot0Clone, null)
         verify(inventory, never()).removeItem(any<ItemStack>())
         verify(bridge).deposit(player, 64.0)
+    }
+
+    @Test
+    fun `executeAcquisition overflow restores inventory even when refund deposit fails`() {
+        val inventory = mock<PlayerInventory>()
+        val logger = mock<Logger>()
+        val player = mock<Player> {
+            on { getInventory() } doReturn inventory
+            on { name } doReturn "TestPlayer"
+            on { uniqueId } doReturn java.util.UUID.randomUUID()
+        }
+
+        val snapshotSlot0 = mock<ItemStack>()
+        val snapshotSlot0Clone = mock<ItemStack>()
+        whenever(snapshotSlot0.clone()).thenReturn(snapshotSlot0Clone)
+        whenever(inventory.storageContents).thenReturn(arrayOf(snapshotSlot0))
+
+        val addClone = mock<ItemStack>()
+        val listing = mock<ItemStack>()
+        whenever(listing.clone()).thenReturn(addClone)
+
+        val bridge = mock<CurrencyBridge> {
+            on { hasBalance(eq(player), any()) } doReturn true
+            on { withdraw(eq(player), any()) } doReturn true
+            on { deposit(eq(player), any()) } doReturn false
+        }
+        val plugin = mock<SovereignCore> {
+            on { currencyBridge } doReturn bridge
+            on { this.logger } doReturn logger
+        }
+
+        val overflowItem = mock<ItemStack> {
+            on { amount } doReturn 60
+        }
+        whenever(inventory.addItem(any<ItemStack>())).thenReturn(hashMapOf(0 to overflowItem))
+
+        val result = TransactionProcessor.executeAcquisition(player, listing, 64, 2.0, plugin)
+
+        assertEquals(TransactionResult.InventoryFull, result)
+        verify(inventory).storageContents = arrayOf(snapshotSlot0Clone)
+        verify(logger).severe(argThat<String> { contains("CRITICAL") && contains("128.0") })
     }
 
     @Test
