@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.5
+
+### Bug Fix
+- **Reload Kills Timed Services** — Fixed quota reset timers and reduction window schedulers permanently stopping after a `/traders reload`. Both services now correctly restart their tick loops after reload instead of only re-syncing data.
+
+---
+
 ## v1.0.4
 
 ### Bug Fix
