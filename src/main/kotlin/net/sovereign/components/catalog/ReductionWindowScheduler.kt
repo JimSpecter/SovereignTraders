@@ -27,7 +27,10 @@ class ReductionWindowScheduler(private val plugin: SovereignCore) {
         }
     }
 
-    
+    fun start() {
+        startTickLoop()
+    }
+
     fun syncFromCatalogs() {
         var count = 0
         for (catalogId in plugin.catalogRepository.listIdentifiers()) {
