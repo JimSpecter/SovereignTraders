@@ -1,5 +1,4 @@
 {
   "kotlin.languageServer.enabled": false,
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "github.copilot.codebase": "off"
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
