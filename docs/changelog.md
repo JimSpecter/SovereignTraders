@@ -1,6 +1,9 @@
 # Changelog
 
-## v1.0.6
+## v1.0.7
+
+### New Feature
+- **bStats Integration** — Added bStats support for SovereignTraders using plugin ID `30709`, with the metrics classes shaded and relocated into the final jar for Paper/Folia-safe runtime reporting.
 
 ### Bug Fix
 - **PlayerPoints Economic Drift** — Fractional prices (from dynamic multipliers, catalog discounts, or user-set decimal values) were silently floor-truncated when transacting with PlayerPoints. A cost of `10.75` would charge `10`, and a reward of `10.75` would pay `10`, causing systematic balance drift over time. All three operations — withdraw, deposit, and affordability check — now round to the nearest integer consistently.
