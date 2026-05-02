@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "net.sovereign"
-version = "1.0.6"
+version = "1.0.7"
 
 java {
     toolchain {
